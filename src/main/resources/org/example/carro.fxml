@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CarroController">
     <children>
         <Label layoutX="107.0" layoutY="28.0" prefHeight="90.0" prefWidth="386.0" text="Bem-Vindo ao seu Carro">
@@ -32,6 +31,5 @@
             </font>
         </Label>
         <TextField fx:id="anoCarroTextField" layoutX="149.0" layoutY="244.0" prefHeight="26.0" prefWidth="230.0" promptText="Digite o ano do carro (apenas numeros)" />
-        <Button fx:id="btn_enviar_info_carro" layoutX="274.0" layoutY="315.0" mnemonicParsing="false" text="ENVIAR" />
     </children>
 </AnchorPane>
