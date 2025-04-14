@@ -15,7 +15,7 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <Button fx:id="btn_enviar_info_bicicleta" layoutX="272.0" layoutY="277.0" mnemonicParsing="false" onAction="#enviarInfoBicicleta" text="ENVIAR" />
+      <Button fx:id="btn_enviar_info_bicicleta" layoutX="272.0" layoutY="277.0" mnemonicParsing="false" onAction="#enviarInfoCarro" text="ENVIAR" />
       <Label layoutX="84.0" layoutY="116.0" text="Marca da Bicicleta:">
          <font>
             <Font name="Comic Sans MS" size="15.0" />

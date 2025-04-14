@@ -1,4 +1,4 @@
-package org.example.Exercicios_Linguagem_Programacao.Segunda_Aula_11_03_2025.classes;
+package org.example.classes;
 
 public class Carro {
     private String marca;
@@ -30,4 +30,5 @@ public class Carro {
         Carro carro = new Carro("Marca", "Modelo", 180);
         carro.mostrarCarro();
     }
+
 }
