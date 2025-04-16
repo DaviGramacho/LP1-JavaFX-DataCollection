@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,13 +9,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.classes.Carro;
+import org.example.model.Carro;
+import javax.swing.text.html.ImageView;
 
 
 public class CarroController {
 
     @FXML
     private TextField anoCarroTextField;
+
+    @FXML
+    private ImageView imgCarro;
 
     @FXML
     private Button btn_enviar_info_carro;

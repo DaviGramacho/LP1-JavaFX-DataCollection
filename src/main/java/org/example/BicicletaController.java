@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,12 +9,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.classes.Bicicleta;
+import javafx.scene.image.ImageView;
+import org.example.model.Bicicleta;
+
 
 public class BicicletaController {
 
     @FXML
     private Button btn_enviar_info_bicicleta;
+
+    @FXML
+    private ImageView imagemBicicleta;
 
     @FXML
     private TextField marcaBicicletaTextField;
