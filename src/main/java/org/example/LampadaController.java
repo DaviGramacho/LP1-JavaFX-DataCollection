@@ -1,14 +1,20 @@
-package org.example.controller;
+package org.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class LampadaController {
 
     @FXML
     private Button btn_enviar_info_lampada;
+
+    @FXML
+    private ImageView imgLampada;
 
     @FXML
     private ComboBox<String> lampadaStatusComboBox;
@@ -22,8 +28,21 @@ public class LampadaController {
         lampadaStatusComboBox.setValue("Ligada");
     }
 
+
     @FXML
     private TextField potenciaLampadaTextField;
+
+    @FXML
+    private TableColumn<?, ?> tblPotencia;
+
+    @FXML
+    private TableColumn<?, ?> tblStatus;
+
+    @FXML
+    private TableColumn<?, ?> tblTipo;
+
+    @FXML
+    private TableView<?> tblView;
 
     @FXML
     private TextField tipoLampadaTextField;

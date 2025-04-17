@@ -37,16 +37,16 @@
         <TextField fx:id="anoCarroTextField" layoutX="152.0" layoutY="260.0" prefHeight="26.0" prefWidth="230.0" promptText="Digite o ano do carro (apenas numeros)" />
       <TableView fx:id="tblViewCarro" layoutX="14.0" layoutY="415.0" prefHeight="200.0" prefWidth="230.0">
         <columns>
-          <TableColumn fx:id="tblMarcaCarro" prefWidth="75.0" style="-fx-background-color: #8D6E63;;" text="Marca" />
-          <TableColumn fx:id="tblModeloCarro" prefWidth="75.0" style="-fx-background-color: #BCAAA4;" text="Modelo" />
-            <TableColumn fx:id="tblAnoCarro" editable="false" prefWidth="79.19998779296876" style="-fx-background-color: #8D6E63;" text="Ano" />
+          <TableColumn fx:id="tblMarcaCarro" prefWidth="75.0" style="-fx-background-color: #8D6E63; -fx-text-fill: #fcfcfc;" text="Marca" />
+          <TableColumn fx:id="tblModeloCarro" prefWidth="75.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Modelo" />
+            <TableColumn fx:id="tblAnoCarro" editable="false" prefWidth="79.19998779296876" style="-fx-background-color: #8D6E63; -fx-text-fill: #fcfcfc;" text="Ano" />
         </columns>
       </TableView>
       <Button fx:id="btn_enviar_info_carro" layoutX="250.0" layoutY="317.0" mnemonicParsing="false" onAction="#enviarInfoCarro" style="-fx-background-color: #8D6E63;" text="ENVIAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font></Button>
-      <ImageView fx:id="teste" fitHeight="150.0" fitWidth="200.0" layoutX="386.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="teste" fitHeight="150.0" fitWidth="200.0" layoutX="471.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/carros.jpg" />
          </image>

@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,11 +13,11 @@ public class App extends Application {
     private static Scene scene;
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         try {
-            scene = new Scene(loadFXML("view/TelaPrincipal"), 640, 480);
+            scene = new Scene(loadFXML("TelaPrincipal"), 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Aplicação JavaFX");
+            stage.setTitle("Minha Aplicação JavaFX");
             stage.show();
         } catch (IOException e) {
             System.err.println("Erro ao carregar o arquivo FXML.");
@@ -30,7 +30,9 @@ public class App extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("org/view/TelaPrincipal.fxml" + fxml + ".fxml"));
+        String caminho = "/org/view/" + fxml + ".fxml";
+        System.out.println("Carregando: " + caminho); // Apenas para debug
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(caminho));
         return fxmlLoader.load();
     }
 

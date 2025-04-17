@@ -1,9 +1,7 @@
-package org.example.controller;
+package org.example;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 public class GeladeiraController {
 
@@ -15,6 +13,18 @@ public class GeladeiraController {
 
     @FXML
     private TextField marcaGeladeiraTextField;
+
+    @FXML
+    private TableColumn<?, ?> tblMarca;
+
+    @FXML
+    private TableColumn<?, ?> tblStatus;
+
+    @FXML
+    private TableColumn<?, ?> tblTemp;
+
+    @FXML
+    private TableView<?> tblView;
 
     @FXML
     private TextField temperaturaGeladeiraTextField;

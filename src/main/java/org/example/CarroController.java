@@ -1,4 +1,4 @@
-package org.example.controller;
+package org.example;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.model.Bicicleta;
 import org.example.model.Carro;
 import javax.swing.text.html.ImageView;
 
@@ -42,7 +43,7 @@ public class CarroController {
     @FXML
     private TableColumn<Carro, String> tblModeloCarro;
 
-    //cria uma lista observavel, destinada aos dados da classe carro
+    //cria uma lista observavel, destinada aos dados da classe bicicleta
     ObservableList<Carro> carros = FXCollections.observableArrayList();
 
     @FXML
@@ -63,9 +64,9 @@ public class CarroController {
     }
     @FXML
     void initialize() {
-        tblModeloCarro.setCellValueFactory(new PropertyValueFactory<>("modelo"));
         tblMarcaCarro.setCellValueFactory(new PropertyValueFactory<>("marca"));
         tblAnoCarro.setCellValueFactory(new PropertyValueFactory<>("ano"));
+        tblModeloCarro.setCellValueFactory(new PropertyValueFactory<>("modelo"));
 
         tblViewCarro.setItems(carros);
     }

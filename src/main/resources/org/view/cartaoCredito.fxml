@@ -11,40 +11,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="556.0" prefWidth="659.0" style="-fx-background-color: #93b4db;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CartaoCreditoController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CartaoCreditoController">
    <children>
-      <Text layoutX="217.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartão de Credito">
+      <Text fill="#8d6e63" layoutX="134.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartão de Credito">
          <font>
-            <Font name="Comic Sans MS" size="31.0" />
+            <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Text>
-      <Label layoutX="66.0" layoutY="177.0" text="Numero do Cartão: ">
+      <Label layoutX="45.0" layoutY="127.0" text="Numero do Cartão: ">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="210.0" text="Limite do Cartão: ">
+      <Label layoutX="45.0" layoutY="177.0" text="Limite do Cartão: ">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="255.0" text="Fatura atual: ">
+      <Label layoutX="45.0" layoutY="223.0" text="Fatura atual: ">
          <font>
             <Font name="Comic Sans MS" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="numeroCartaoTextField" layoutX="202.0" layoutY="175.0" prefHeight="26.0" prefWidth="158.0" promptText="Digite o numero do cartão" />
-      <TextField fx:id="limiteCartaoTextField" layoutX="197.0" layoutY="209.0" promptText="Digite o limite do cartão" />
-      <TextField fx:id="faturaCartaoTextField" layoutX="160.0" layoutY="253.0" prefHeight="26.0" prefWidth="175.0" promptText="Digite a fatura atual do cartão" />
-      <TableView fx:id="tblViewCartaoCredito" layoutX="48.0" layoutY="342.0" prefHeight="200.0" prefWidth="224.0">
+      <TextField fx:id="numeroCartaoTextField" layoutX="181.0" layoutY="125.0" prefHeight="26.0" prefWidth="158.0" promptText="Digite o numero do cartão" />
+      <TextField fx:id="limiteCartaoTextField" layoutX="173.0" layoutY="175.0" promptText="Digite o limite do cartão" />
+      <TextField fx:id="faturaCartaoTextField" layoutX="139.0" layoutY="221.0" prefHeight="26.0" prefWidth="175.0" promptText="Digite a fatura atual do cartão" />
+      <TableView fx:id="tblViewCartaoCredito" layoutX="48.0" layoutY="342.0" prefHeight="200.0" prefWidth="273.0">
         <columns>
-          <TableColumn fx:id="tblNumeroCartao" prefWidth="75.0" text="Numero" />
-          <TableColumn fx:id="tblLimeteCartao" prefWidth="75.0" text="Limite" />
-            <TableColumn fx:id="tblFaturaCartao" prefWidth="75.0" text="Fatura" />
+          <TableColumn fx:id="tblNumeroCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63;" text="Numero" />
+          <TableColumn fx:id="tblLimeteCartao" prefWidth="90.0" style="-fx-background-color: #BCAAA4;" text="Limite" />
+            <TableColumn fx:id="tblFaturaCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63;" text="Fatura" />
         </columns>
       </TableView>
-      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="272.0" layoutY="291.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" text="ENVIAR" />
-      <ImageView fx:id="imagemCartao" fitHeight="150.0" fitWidth="200.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="272.0" layoutY="291.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font></Button>
+      <ImageView fx:id="imagemCartao" fitHeight="95.0" fitWidth="140.0" layoutX="515.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/CartaoCredito.jpg" />
          </image>

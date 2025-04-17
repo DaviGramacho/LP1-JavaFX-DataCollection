@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BicicletaController">
    <children>
-      <Label layoutX="244.0" layoutY="28.0" text="Bicicleta" textFill="#8d6e63">
+      <Label layoutX="260.0" layoutY="28.0" text="Bicicleta" textFill="#8d6e63">
          <font>
-            <Font name="Comic Sans MS Bold" size="50.0" />
+            <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Label>
       <Button fx:id="btn_enviar_info_bicicleta" layoutX="272.0" layoutY="301.0" mnemonicParsing="false" onAction="#enviarInfoBicicleta" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
@@ -39,14 +39,14 @@
       <TextField fx:id="marcaBicicletaTextField" layoutX="228.0" layoutY="152.0" prefHeight="26.0" prefWidth="157.0" promptText="Digite a marca da bicicleta" />
       <TextField fx:id="velocidadeAtualBicicletaTextField" layoutX="210.0" layoutY="194.0" prefHeight="26.0" prefWidth="285.0" promptText="Digite a velocidade atual (apenas numeros inteiros)" />
       <TextField fx:id="marchaAtualBicicletaTextField" layoutX="187.0" layoutY="240.0" prefHeight="26.0" prefWidth="266.0" promptText="Digite a marcha atual (apenas numeros inteiros)" />
-      <TableView fx:id="tblView" layoutX="21.0" layoutY="409.0" prefHeight="200.0" prefWidth="227.0">
+      <TableView fx:id="tblView" layoutX="21.0" layoutY="409.0" prefHeight="200.0" prefWidth="266.0">
         <columns>
-          <TableColumn fx:id="tblMarca" prefWidth="75.0" style="-fx-background-color: #8d6e63;" text="Marca" />
-          <TableColumn fx:id="tblVel" prefWidth="75.0" style="-fx-background-color: #BCAAA4;" text="Velocidade" />
-            <TableColumn fx:id="tblMarcha" prefWidth="75.0" style="-fx-background-color: #8d6e63; color: #fcfcfc;" text="Marcha" />
+          <TableColumn fx:id="tblMarca" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Marca" />
+          <TableColumn fx:id="tblVel" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Velocidade" />
+            <TableColumn fx:id="tblMarcha" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Marcha" />
         </columns>
       </TableView>
-      <ImageView fx:id="imagemBicicleta" fitHeight="141.0" fitWidth="204.0" layoutX="517.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagemBicicleta" fitHeight="95.0" fitWidth="140.0" layoutX="517.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Bicicletas.jpg" />
          </image>
