@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -46,5 +47,15 @@ public class LampadaController {
 
     @FXML
     private TextField tipoLampadaTextField;
+
+    @FXML
+    void voltarPrincipalLampada(ActionEvent event) {
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }

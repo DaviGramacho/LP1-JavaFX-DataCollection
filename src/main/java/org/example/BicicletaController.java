@@ -19,6 +19,9 @@ public class BicicletaController {
     private Button btn_enviar_info_bicicleta;
 
     @FXML
+    private Button btn_voltar_bicicleta;
+
+    @FXML
     private ImageView imagemBicicleta;
 
     @FXML
@@ -68,5 +71,15 @@ public class BicicletaController {
         tblVel.setCellValueFactory(new PropertyValueFactory<>("velocidadeAtual"));
 
         tblView.setItems(bicicletas);
+    }
+
+    @FXML
+    void voltarPrincipalBicicleta(ActionEvent event){
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

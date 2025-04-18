@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+
+import java.awt.event.ActionEvent;
+
 public class CelularController {
 
     @FXML
@@ -13,6 +16,9 @@ public class CelularController {
 
     @FXML
     private TextField bateriaCelularTextField;
+
+    @FXML
+    private Button btn_voltar_celular;
 
     @FXML
     private TextField marcaCelularTextField;
@@ -26,4 +32,12 @@ public class CelularController {
     @FXML
     private TableView<?> tblCelular;
 
+    public void voltarPrincipalCelular(javafx.event.ActionEvent actionEvent) {
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

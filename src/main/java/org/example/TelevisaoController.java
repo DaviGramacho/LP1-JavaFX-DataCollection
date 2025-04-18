@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -40,5 +41,15 @@ public class TelevisaoController {
 
         // Define um valor padrão (opcional)
         televisaoStatusComboBox.setValue("Ligada");
+    }
+
+    @FXML
+    void voltarPrincipalTelevisao(ActionEvent event) {
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

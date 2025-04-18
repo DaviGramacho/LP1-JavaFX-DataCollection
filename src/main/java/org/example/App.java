@@ -17,7 +17,7 @@ public class App extends Application {
         try {
             scene = new Scene(loadFXML("TelaPrincipal"), 640, 480);
             stage.setScene(scene);
-            stage.setTitle("Minha Aplicação JavaFX");
+            stage.setTitle("LP1-JavaFX-DataCollection");
             stage.show();
         } catch (IOException e) {
             System.err.println("Erro ao carregar o arquivo FXML.");

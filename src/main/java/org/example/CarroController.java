@@ -9,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.example.model.Bicicleta;
 import org.example.model.Carro;
 import javax.swing.text.html.ImageView;
 
@@ -69,5 +68,15 @@ public class CarroController {
         tblModeloCarro.setCellValueFactory(new PropertyValueFactory<>("modelo"));
 
         tblViewCarro.setItems(carros);
+    }
+
+    @FXML
+    void voltarPrincipalCarro(ActionEvent event) {
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

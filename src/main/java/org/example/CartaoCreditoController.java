@@ -67,4 +67,12 @@ public class CartaoCreditoController {
     }
 
 
+    public void voltarPrincipalCartao(ActionEvent actionEvent) {
+        try {
+            // Altera a cena para a tela do livro
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -51,5 +51,10 @@
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/carros.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btn_voltar_carro" layoutX="24.0" layoutY="25.0" mnemonicParsing="false" onAction="#voltarPrincipalCarro" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

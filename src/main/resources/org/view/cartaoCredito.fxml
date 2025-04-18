@@ -43,6 +43,7 @@
             <TableColumn fx:id="tblFaturaCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63;" text="Fatura" />
         </columns>
       </TableView>
+
       <Button fx:id="btn_enviar_info_cartao_credito" layoutX="272.0" layoutY="291.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
@@ -52,5 +53,10 @@
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/CartaoCredito.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btn_voltar_cartao" layoutX="15.0" layoutY="18.0" mnemonicParsing="false" onAction="#voltarPrincipalCartao" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
