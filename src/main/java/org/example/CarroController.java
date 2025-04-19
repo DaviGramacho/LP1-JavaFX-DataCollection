@@ -41,9 +41,6 @@ public class CarroController {
     // Variável para controlar o estado atual da marcha
     private String marchaAtual = "1"; // Inicia na primeira marcha
 
-    /**
-     * Método para aumentar a marcha.
-     */
     @FXML
     public void aumentarMarcha() {
         switch (marchaAtual) {
@@ -69,9 +66,6 @@ public class CarroController {
         atualizarLabel();
     }
 
-    /**
-     * Método para diminuir a marcha.
-     */
     @FXML
     public void diminuirMarcha() {
         switch (marchaAtual) {
@@ -97,44 +91,34 @@ public class CarroController {
         atualizarLabel();
     }
 
-    /**
-     * Atualiza o texto do Label com a marcha atual.
-     */
     private void atualizarLabel() {
         marchaLabel.setText("Marcha: " + marchaAtual);
     }
 
-    /**
-     * Exibe um alerta personalizado.
-     *
-     * @param mensagem A mensagem a ser exibida no alerta.
-     */
     private void showAlert(String mensagem) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Aviso");
-        alert.setHeaderText(null); // Remove o cabeçalho
+        alert.setHeaderText(null);
         alert.setContentText(mensagem);
-
-        // Remove os botões padrão e adiciona apenas o botão "Fechar"
         alert.getButtonTypes().clear();
         alert.getButtonTypes().add(ButtonType.CLOSE);
-
-        // Mostra o alerta e aguarda até que o usuário o feche
         alert.showAndWait();
     }
 
-    /**
-     * Envia as informações do carro para a tabela.
-     */
     @FXML
     void enviarInfoCarro(ActionEvent event) {
         try {
-            // Obtém os valores dos campos de texto
-            String marca = marcaCarroTextField.getText();
-            String modelo = modeloCarroTextField.getText();
+            String marca = marcaCarroTextField.getText().trim();
+            String modelo = modeloCarroTextField.getText().trim();
+            String anoText = anoCarroTextField.getText().trim();
 
-            // Verifica se o ano do carro contém apenas números
-            String anoText = anoCarroTextField.getText();
+            // Verificação de campos vazios
+            if (marca.isEmpty() || modelo.isEmpty() || anoText.isEmpty()) {
+                showAlert("Por favor, preencha todos os campos.");
+                return;
+            }
+
+            // Verificação se o campo ano possui apenas números
             if (!anoText.matches("\\d+")) {
                 showAlert("Erro: O campo 'Ano' deve conter apenas números.");
                 return;
@@ -142,33 +126,24 @@ public class CarroController {
 
             int ano = Integer.parseInt(anoText);
 
-            // Cria um novo carro e adiciona à lista
             Carro carro = new Carro(marca, modelo, ano);
             carros.add(carro);
 
-            // Limpa os campos de texto após adicionar o carro
             marcaCarroTextField.clear();
             modeloCarroTextField.clear();
             anoCarroTextField.clear();
 
-            // Exibe o carro no console para teste
             carro.mostrarCarro();
         } catch (Exception e) {
             showAlert("Erro ao adicionar o carro: " + e.getMessage());
         }
     }
 
-    /**
-     * Inicializa a tabela e configura as colunas.
-     */
     @FXML
     void initialize() {
-        // Configura as colunas da tabela
         tblMarcaCarro.setCellValueFactory(new PropertyValueFactory<>("marca"));
         tblAnoCarro.setCellValueFactory(new PropertyValueFactory<>("ano"));
         tblModeloCarro.setCellValueFactory(new PropertyValueFactory<>("modelo"));
-
-        // Define os itens da tabela como a lista de carros
         tblViewCarro.setItems(carros);
     }
 
