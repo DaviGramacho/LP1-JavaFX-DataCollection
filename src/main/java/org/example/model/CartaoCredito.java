@@ -19,8 +19,12 @@ public class CartaoCredito {
         return limite;
     }
 
-    public double getFaturalAtual() {
+    public double getFaturaAtual() {
         return faturaAtual;
+    }
+
+    public void setFaturaAtual(double faturaAtual) {
+        this.faturaAtual = faturaAtual;
     }
 
     public void mostrarCartao(){
@@ -30,7 +34,7 @@ public class CartaoCredito {
     }
 
     public static void main(String[] args) {
-        CartaoCredito CartaoCredito = new CartaoCredito("9128 2312 2132 5462", 2500, 180);
-        CartaoCredito.mostrarCartao();
+        CartaoCredito cartaoCredito = new CartaoCredito("9128 2312 2132 5462", 2500, 180);
+        cartaoCredito.mostrarCartao();
     }
 }

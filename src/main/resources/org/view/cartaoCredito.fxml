@@ -18,33 +18,36 @@
             <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Text>
-      <Label layoutX="45.0" layoutY="127.0" text="Numero do Cartão: ">
+      <Label layoutX="45.0" layoutY="127.0" text="Numero do Cartão: " textFill="#8d6e63">
          <font>
-            <Font name="Comic Sans MS" size="15.0" />
+            <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="45.0" layoutY="177.0" text="Limite do Cartão: ">
+      <Label layoutX="45.0" layoutY="177.0" text="Limite do Cartão: " textFill="#8d6e63">
          <font>
-            <Font name="Comic Sans MS" size="15.0" />
+            <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="45.0" layoutY="223.0" text="Fatura atual: ">
+      <Label layoutX="45.0" layoutY="223.0" text="Fatura atual: " textFill="#8d6e63">
          <font>
-            <Font name="Comic Sans MS" size="15.0" />
+            <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="numeroCartaoTextField" layoutX="181.0" layoutY="125.0" prefHeight="26.0" prefWidth="158.0" promptText="Digite o numero do cartão" />
-      <TextField fx:id="limiteCartaoTextField" layoutX="173.0" layoutY="175.0" promptText="Digite o limite do cartão" />
-      <TextField fx:id="faturaCartaoTextField" layoutX="139.0" layoutY="221.0" prefHeight="26.0" prefWidth="175.0" promptText="Digite a fatura atual do cartão" />
-      <TableView fx:id="tblViewCartaoCredito" layoutX="48.0" layoutY="342.0" prefHeight="200.0" prefWidth="273.0">
+      <TextField fx:id="numeroCartaoTextField" layoutX="191.0" layoutY="125.0" prefHeight="26.0" prefWidth="158.0" promptText="Digite o numero do cartão" />
+      <TextField fx:id="limiteCartaoTextField" layoutX="176.0" layoutY="175.0" promptText="Digite o limite do cartão" />
+      <TextField fx:id="faturaCartaoTextField" layoutX="143.0" layoutY="221.0" prefHeight="26.0" prefWidth="175.0" promptText="Digite a fatura atual do cartão" />
+      <TableView fx:id="tblViewCartaoCredito" layoutX="21.0" layoutY="372.0" prefHeight="200.0" prefWidth="273.0">
         <columns>
-          <TableColumn fx:id="tblNumeroCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63;" text="Numero" />
-          <TableColumn fx:id="tblLimeteCartao" prefWidth="90.0" style="-fx-background-color: #BCAAA4;" text="Limite" />
-            <TableColumn fx:id="tblFaturaCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63;" text="Fatura" />
+          <TableColumn fx:id="tblNumeroCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Numero" />
+          <TableColumn fx:id="tblLimeteCartao" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Limite" />
+            <TableColumn fx:id="tblFaturaCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Fatura" />
         </columns>
       </TableView>
-
-      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="272.0" layoutY="291.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
+      <Label fx:id="lblHistoricoGastos" layoutX="328.0" layoutY="377.0" text="Histórico de Gastos" textFill="#8d6e63">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font></Label>
+      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="122.0" layoutY="292.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font></Button>
@@ -56,6 +59,16 @@
       <Button fx:id="btn_voltar_cartao" layoutX="15.0" layoutY="18.0" mnemonicParsing="false" onAction="#voltarPrincipalCartao" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="515.0" layoutY="292.0" mnemonicParsing="false" onAction="#gastarValor" style="-fx-background-color: #8d6e63;" text="Gastar limite" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="328.0" layoutY="292.0" mnemonicParsing="false" onAction="#hackearCartao" style="-fx-background-color: #8d6e63;" text="Clonar o cartão" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
       </Button>
    </children>
