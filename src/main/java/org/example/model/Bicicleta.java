@@ -11,7 +11,6 @@ public class Bicicleta {
         this.marchaAtual = marchaAtual;
     }
 
-
     public String getMarca() {
         return marca;
     }
@@ -20,8 +19,16 @@ public class Bicicleta {
         return velocidadeAtual;
     }
 
+    public void setVelocidadeAtual(int velocidadeAtual) {
+        this.velocidadeAtual = velocidadeAtual;
+    }
+
     public int getMarchaAtual() {
         return marchaAtual;
+    }
+
+    public void setMarchaAtual(int marchaAtual) {
+        this.marchaAtual = marchaAtual;
     }
 
     public void mostarInformacoes() {
@@ -35,4 +42,3 @@ public class Bicicleta {
         bike.mostarInformacoes();
     }
 }
-

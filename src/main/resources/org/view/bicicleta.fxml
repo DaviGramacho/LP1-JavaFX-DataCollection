@@ -17,43 +17,66 @@
             <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Label>
+
       <Button fx:id="btn_enviar_info_bicicleta" layoutX="272.0" layoutY="301.0" mnemonicParsing="false" onAction="#enviarInfoBicicleta" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
-         </font></Button>
+         </font>
+      </Button>
+
+      <Button fx:id="btn_pedalar" layoutX="376.0" layoutY="409.0" mnemonicParsing="false" onAction="#pedalarBicicleta" style="-fx-background-color: #8d6e63;" text="PEDALAR" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+
       <Label layoutX="84.0" layoutY="154.0" text="Marca da Bicicleta:" textFill="#8d6e63">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
+
       <Label layoutX="84.0" layoutY="196.0" text="Velocidade atual:" textFill="#8d6e63">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
+
       <Label layoutX="84.0" layoutY="242.0" text="Marcha atual:" textFill="#8d6e63">
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font>
       </Label>
+
+      <Label fx:id="lblVelocidadeAtual" layoutX="321.0" layoutY="470.0" text="Velocidade Atual: 0 km/h" textFill="#8d6e63">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font>
+      </Label>
+
       <TextField fx:id="marcaBicicletaTextField" layoutX="228.0" layoutY="152.0" prefHeight="26.0" prefWidth="157.0" promptText="Digite a marca da bicicleta" />
       <TextField fx:id="velocidadeAtualBicicletaTextField" layoutX="210.0" layoutY="194.0" prefHeight="26.0" prefWidth="285.0" promptText="Digite a velocidade atual (apenas numeros inteiros)" />
       <TextField fx:id="marchaAtualBicicletaTextField" layoutX="187.0" layoutY="240.0" prefHeight="26.0" prefWidth="266.0" promptText="Digite a marcha atual (apenas numeros inteiros)" />
+
       <TableView fx:id="tblView" layoutX="21.0" layoutY="409.0" prefHeight="200.0" prefWidth="266.0">
-        <columns>
-          <TableColumn fx:id="tblMarca" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Marca" />
-          <TableColumn fx:id="tblVel" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Velocidade" />
-            <TableColumn fx:id="tblMarcha" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Marcha" />
-        </columns>
+         <columns>
+            <TableColumn fx:id="tblMarca" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Marca" />
+            <TableColumn fx:id="tblVel" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Velocidade" />
+            <TableColumn fx:id="tblMarcha" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #FCFCFC;" text="Marcha" />
+         </columns>
       </TableView>
+
       <ImageView fx:id="imagemBicicleta" fitHeight="95.0" fitWidth="140.0" layoutX="517.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Bicicletas.jpg" />
          </image>
       </ImageView>
+
       <Button fx:id="btn_voltar_bicicleta" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarPrincipalBicicleta" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
-         </font></Button>
+         </font>
+      </Button>
+
    </children>
 </AnchorPane>
