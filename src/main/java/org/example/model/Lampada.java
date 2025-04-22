@@ -1,36 +1,43 @@
-package org.example.Exercicios_Linguagem_Programacao.Segunda_Aula_11_03_2025.classes;
+package org.example.model;
 
 public class Lampada {
-    private int potencia;
-    private boolean ligado;
     private String tipo;
+    private int potencia;
+    private String status;
+    private int brilho;  // Adicionado o atributo de brilho
 
-    public Lampada(int potencia, boolean ligado, String tipo){
-        this.potencia = potencia;
-        this.ligado = ligado;
+    public Lampada(String tipo, int potencia, String status, int brilho) {
         this.tipo = tipo;
+        this.potencia = potencia;
+        this.status = status;
+        this.brilho = brilho;
     }
 
-    public int getPotencia(){
-        return potencia;
-    }
-
-    public boolean getLigado(){
-        return ligado;
-    }
-
-    public String getTipo(){
+    public String getTipo() {
         return tipo;
     }
 
-    public void mostrarLampada(){
-        System.out.println("Lampada: " + potencia);
-        System.out.println("Ligado: " + ligado);
-        System.out.println("Tipo: " + tipo);
+    public int getPotencia() {
+        return potencia;
     }
 
-    public static void main(String[]args){
-        Lampada lampada = new Lampada(0, true, "LED");
-        lampada.mostrarLampada();
+    public String getStatus() {
+        return status;
+    }
+
+    public int getBrilho() {
+        return brilho;
+    }
+
+    public void setBrilho(int brilho) {
+        this.brilho = brilho;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
     }
 }

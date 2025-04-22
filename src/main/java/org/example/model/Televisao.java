@@ -1,37 +1,44 @@
-package org.example.Exercicios_Linguagem_Programacao.Segunda_Aula_11_03_2025.classes;
+package org.example.model;
 
 public class Televisao {
     private String marca;
     private double tamanhoTela;
     private boolean ligado;
+    private int canalAtual;
 
-    public Televisao(String marca, double tamanhoTela, boolean ligado){
+    public Televisao(String marca, double tamanhoTela, boolean ligado) {
         this.marca = marca;
         this.tamanhoTela = tamanhoTela;
         this.ligado = ligado;
+        this.canalAtual = 1; // Canal padrão
     }
 
-    public String getMarca(){
+    public String getMarca() {
         return marca;
     }
 
-    public double getTamanhoTela(){
+    public double getTamanhoTela() {
         return tamanhoTela;
     }
 
-    public boolean getLigado(){
+    public boolean getLigado() {
         return ligado;
     }
 
-    public void mostrarTelevisao(){
+    public int getCanalAtual() {
+        return canalAtual;
+    }
+
+    public void trocarCanal(int novoCanal) {
+        if (ligado && novoCanal > 0) {
+            this.canalAtual = novoCanal;
+        }
+    }
+
+    public void mostrarTelevisao() {
         System.out.println("Marca: " + marca);
         System.out.println("Tamanho tela: " + tamanhoTela);
         System.out.println("Ligado: " + ligado);
+        System.out.println("Canal Atual: " + canalAtual);
     }
-
-    public static void main(String[]args){
-        Televisao televisao = new Televisao("LG", 50, true);
-        televisao.mostrarTelevisao();
-    }
-
 }

@@ -1,36 +1,22 @@
-package org.example.Exercicios_Linguagem_Programacao.Segunda_Aula_11_03_2025.classes;
+package org.example.model;
 
 public class Relogio {
     private String marca;
-    private int horas;
-    private int minutos;
+    private String hora;
+    private String minutos;
 
-    public Relogio(String marca, int horas, int minutos){
+    public Relogio(String marca, String hora, String minutos) {
         this.marca = marca;
-        this.horas = horas;
+        this.hora = hora;
         this.minutos = minutos;
     }
 
-    public String getMarca(){
-        return marca;
-    }
+    public String getMarca() { return marca; }
+    public void setMarca(String marca) { this.marca = marca; }
 
-    public int getHoras(){
-        return horas;
-    }
+    public String getHora() { return hora; }
+    public void setHora(String hora) { this.hora = hora; }
 
-    public int getMinutos(){
-        return minutos;
-    }
-
-    public void mostrarRelogio(){
-        System.out.println("Marca: " + marca);
-        System.out.println("Horas: " + horas);
-        System.out.println("Minutos: " + minutos);
-    }
-
-    public static void main(String[]args){
-        Relogio relogio = new Relogio("Rolex", 13, 45);
-        relogio.mostrarRelogio();
-    }
+    public String getMinutos() { return minutos; }
+    public void setMinutos(String minutos) { this.minutos = minutos; }
 }

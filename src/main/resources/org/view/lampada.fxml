@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -11,59 +12,60 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LampadaController">
-    <children>
-        <Button fx:id="btn_voltar_lampada" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarPrincipalLampada" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
-            <font>
-                <Font name="Comic Sans MS Bold" size="12.0" />
-            </font>
-        </Button>
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.LampadaController">
 
-        <Label layoutX="262.0" layoutY="31.0" text="Lâmpada" textFill="#8d6e63">
-            <font>
-                <Font name="Comic Sans MS Bold" size="37.0" />
-            </font>
-        </Label>
+    <!-- VOLTAR -->
+    <Button fx:id="btn_voltar_lampada" layoutX="14" layoutY="15" onAction="#voltarPrincipalLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">
+        <font><Font name="Comic Sans MS Bold" size="12" /></font>
+    </Button>
 
-        <Label layoutX="70.0" layoutY="127.0" text="Potência da Lâmpada:" textFill="#8d6e63">
-            <font>
-                <Font name="Comic Sans MS Bold" size="15.0" />
-            </font>
-        </Label>
+    <!-- TÍTULO -->
+    <Label layoutX="262" layoutY="31" text="Lâmpada" textFill="#8d6e63">
+        <font><Font name="Comic Sans MS Bold" size="37" /></font>
+    </Label>
 
-        <Label layoutX="70.0" layoutY="189.0" text="Lâmpada está ligada?" textFill="#8d6e63">
-            <font>
-                <Font name="Comic Sans MS Bold" size="15.0" />
-            </font>
-        </Label>
+    <!-- Potência -->
+    <Label layoutX="70" layoutY="127" text="Potência da Lâmpada:" textFill="#8d6e63">
+        <font><Font name="Comic Sans MS Bold" size="15" /></font>
+    </Label>
+    <TextField fx:id="potenciaLampadaTextField" layoutX="240" layoutY="125" prefHeight="26" prefWidth="200" promptText="Digite a potência da lâmpada" />
 
-        <Label layoutX="70.0" layoutY="242.0" text="Tipo da Lâmpada:" textFill="#8d6e63">
-            <font>
-                <Font name="Comic Sans MS Bold" size="15.0" />
-            </font>
-        </Label>
+    <!-- Status -->
+    <Label layoutX="70" layoutY="189" text="Lâmpada está ligada?" textFill="#8d6e63">
+        <font><Font name="Comic Sans MS Bold" size="15" /></font>
+    </Label>
+    <ComboBox fx:id="lampadaStatusComboBox" layoutX="230" layoutY="187" prefHeight="26" prefWidth="150" />
 
-        <TextField fx:id="potenciaLampadaTextField" layoutX="240.0" layoutY="125.0" prefHeight="26.0" prefWidth="200.0" promptText="Digite a potência da lâmpada" />
-        <ComboBox fx:id="lampadaStatusComboBox" layoutX="230.0" layoutY="187.0" prefHeight="26.0" prefWidth="150.0" />
-        <TextField fx:id="tipoLampadaTextField" layoutX="205.0" layoutY="240.0" prefHeight="26.0" prefWidth="200.0" promptText="Digite o tipo da lâmpada" />
+    <!-- Tipo -->
+    <Label layoutX="70" layoutY="242" text="Tipo da Lâmpada:" textFill="#8d6e63">
+        <font><Font name="Comic Sans MS Bold" size="15" /></font>
+    </Label>
+    <TextField fx:id="tipoLampadaTextField" layoutX="205" layoutY="240" prefHeight="26" prefWidth="200" promptText="Digite o tipo da lâmpada" />
 
-        <Button fx:id="btn_enviar_info_lampada" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
-            <font>
-                <Font name="Comic Sans MS Bold" size="13.0" />
-            </font>
-        </Button>
+    <!-- ENVIAR -->
+    <Button fx:id="btn_enviar_info_lampada" layoutX="270" layoutY="300" onAction="#enviarInfoLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="ENVIAR">
+        <font><Font name="Comic Sans MS Bold" size="13" /></font>
+    </Button>
 
-        <TableView fx:id="tblView" layoutX="25.0" layoutY="376.0" prefHeight="200.0" prefWidth="280.0">
-            <columns>
-                <TableColumn fx:id="tblPotencia" prefWidth="93.0" style="-fx-background-color: #8d6e63;" text="Potência" />
-                <TableColumn fx:id="tblStatus" prefWidth="93.0" style="-fx-background-color: #BCAAA4;" text="Ligada?" />
-                <TableColumn fx:id="tblTipo" prefWidth="93.0" style="-fx-background-color: #8d6e63;" text="Tipo" />
-            </columns>
-        </TableView>
-      <ImageView fx:id="imgLampada" fitHeight="113.0" fitWidth="177.0" layoutX="502.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Lampadas.jpg" />
-         </image>
-      </ImageView>
-    </children>
+    <!-- Slider de brilho -->
+    <Label layoutX="70" layoutY="350" text="Brilho (%):" textFill="#8d6e63">
+        <font><Font name="Comic Sans MS Bold" size="15" /></font>
+    </Label>
+    <Slider fx:id="brilhoLampadaSlider" blockIncrement="1" layoutX="160" layoutY="350" max="100" min="0" onMouseReleased="#atualizarBrilho" prefWidth="280" />
+
+    <!-- Tabela de Lâmpadas -->
+    <TableView fx:id="tblView" layoutX="25" layoutY="400" prefHeight="200" prefWidth="504.0">
+        <columns>
+            <TableColumn fx:id="tblPotencia" prefWidth="125" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Potência" />
+            <TableColumn fx:id="tblStatus" prefWidth="125" style="-fx-background-color: #BCAAA4; -fx-text-fill: white;" text="Status" />
+            <TableColumn fx:id="tblTipo" prefWidth="125.0" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Tipo" />
+            <TableColumn fx:id="tblBrilho" prefWidth="125.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: white;" text="Brilho (%)" />
+        </columns>
+    </TableView>
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Lampadas.jpg" />
+      </image>
+   </ImageView>
+
 </AnchorPane>

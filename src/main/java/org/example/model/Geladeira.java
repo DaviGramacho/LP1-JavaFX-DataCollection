@@ -1,37 +1,40 @@
-package org.example.Exercicios_Linguagem_Programacao.Segunda_Aula_11_03_2025.classes;
+package org.example.model;
 
 public class Geladeira {
     private String marca;
+    private String status;
     private int temperatura;
-    private boolean ligado;
 
-    public Geladeira(String marca, int temperatura, boolean ligado){
+    public Geladeira(String marca, String status, int temperatura){
         this.marca = marca;
+        this.status = status;
         this.temperatura = temperatura;
-        this.ligado = ligado;
     }
 
     public String getMarca(){
         return marca;
     }
 
+    public String getStatus(){
+        return status;
+    }
+
     public int getTemperatura(){
         return temperatura;
     }
 
-    public boolean getLigado(){
-        return ligado;
+    public void setTemperatura(int temperatura){
+        this.temperatura = temperatura;
     }
 
     public void mostrarGeladeira(){
         System.out.println("Marca: " + marca);
         System.out.println("Temperatura: " + temperatura);
-        System.out.println("Ligado: " + ligado);
+        System.out.println("Status: " + status);
     }
 
     public static void main(String[]args){
-        Geladeira geladeira = new Geladeira ("LG", -50, true);
+        Geladeira geladeira = new Geladeira ("LG", "Ligada", -50);
         geladeira.mostrarGeladeira();
     }
-
 }

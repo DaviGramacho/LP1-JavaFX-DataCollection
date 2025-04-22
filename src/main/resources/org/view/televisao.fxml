@@ -44,11 +44,24 @@
             </font>
         </Label>
 
+        <Label layoutX="78.0" layoutY="260.0" text="Trocar para canal:" textFill="#8d6e63">
+            <font>
+                <Font name="Comic Sans MS Bold" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="canalTelevisaoTextField" layoutX="227.0" layoutY="258.0" prefHeight="26.0" prefWidth="165.0" promptText="Digite o número do canal" />
+
+        <Button layoutX="263.0" layoutY="355.0" mnemonicParsing="false" onAction="#trocarCanal" style="-fx-background-color: #8d6e63;" text="TROCAR CANAL" textFill="#fcfcfc">
+            <font>
+                <Font name="Comic Sans MS Bold" size="13.0" />
+            </font>
+        </Button>
+
         <TextField fx:id="marcaTelevisaoTextField" layoutX="227.0" layoutY="132.0" prefHeight="26.0" prefWidth="165.0" promptText="Digite a marca da televisão" />
         <TextField fx:id="tamanhoTelevisaoTextField" layoutX="212.0" layoutY="174.0" prefHeight="26.0" prefWidth="195.0" promptText="Digite o tamanho da televisão" />
         <ComboBox fx:id="televisaoStatusComboBox" layoutX="265.0" layoutY="217.0" prefWidth="150.0" />
 
-        <Button fx:id="btn_enviar_info_televisao" layoutX="263.0" layoutY="313.0" mnemonicParsing="false" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
+        <Button fx:id="btn_enviar_info_televisao" layoutX="263.0" layoutY="313.0" mnemonicParsing="false" onAction="#enviarInfoTelevisao" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
             <font>
                 <Font name="Comic Sans MS Bold" size="13.0" />
             </font>
