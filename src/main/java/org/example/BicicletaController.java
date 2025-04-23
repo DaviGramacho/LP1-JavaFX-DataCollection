@@ -17,10 +17,6 @@ import org.example.model.Bicicleta;
 
 public class BicicletaController {
 
-    @FXML private Button btn_enviar_info_bicicleta;
-    @FXML private Button btn_voltar_bicicleta;
-    @FXML private Button btn_pedalar;
-    @FXML private ImageView imagemBicicleta;
     @FXML private TextField marcaBicicletaTextField;
     @FXML private TextField marchaAtualBicicletaTextField;
     @FXML private TextField velocidadeAtualBicicletaTextField;

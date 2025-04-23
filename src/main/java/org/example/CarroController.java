@@ -36,7 +36,7 @@ public class CarroController {
     private Label marchaLabel;
 
     // Lista observável para armazenar os carros
-    private final ObservableList<Carro> carros = FXCollections.observableArrayList();
+    ObservableList<Carro> carros = FXCollections.observableArrayList();
 
     // Variável para controlar o estado atual da marcha
     private String marchaAtual = "1"; // Inicia na primeira marcha

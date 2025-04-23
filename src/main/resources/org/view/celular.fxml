@@ -45,7 +45,7 @@
       <Button fx:id="btnUsar" layoutX="349.0" layoutY="389.0" style="-fx-background-color: #8d6e63;" text="► Usar (-5%)" textFill="#fcfcfc">
          <font><Font name="Comic Sans MS Bold" size="13.0" /></font>
       </Button>
-      <Button fx:id="btnCarregar" layoutX="506.0" layoutY="389.0" style="-fx-background-color: #8d6e63;" text="⚡️ Carregar (+5%)" textFill="#fcfcfc">
+      <Button fx:id="btnCarregar" layoutX="506.0" layoutY="389.0" style="-fx-background-color: #8d6e63;" text="⚡️ Carregar (+100%)" textFill="#fcfcfc">
          <font><Font name="Comic Sans MS Bold" size="13.0" /></font>
       </Button>
 

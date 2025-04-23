@@ -1,90 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.LivroController"
-            prefWidth="600" prefHeight="640"
-            style="-fx-background-color: #FFF8DC;">
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.LivroController">
 
    <!-- VOLTAR -->
-   <Button layoutX="14" layoutY="15" text="VOLTAR"
-           style="-fx-background-color: #8d6e63; -fx-text-fill: white;"
-           onAction="#voltarPrincipalLivro">
-      <font><Font name="Comic Sans MS Bold" size="12"/></font>
+   <Button layoutX="14" layoutY="15" onAction="#voltarPrincipalLivro" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">
+      <font><Font name="Comic Sans MS Bold" size="12" /></font>
    </Button>
 
    <!-- TÍTULO -->
    <Label layoutX="260" layoutY="35" text="Livro" textFill="#8d6e63">
-      <font><Font name="Comic Sans MS Bold" size="37"/></font>
+      <font><Font name="Comic Sans MS Bold" size="37" /></font>
    </Label>
 
    <!-- Campos de entrada -->
    <Label layoutX="70" layoutY="130" text="Título:" textFill="#8d6e63">
-      <font><Font name="Comic Sans MS Bold" size="15"/></font>
+      <font><Font name="Comic Sans MS Bold" size="15" /></font>
    </Label>
-   <TextField fx:id="tituloLivroTextField"
-              layoutX="170" layoutY="128"
-              prefWidth="300"/>
+   <TextField fx:id="tituloLivroTextField" layoutX="170" layoutY="128" prefWidth="300" />
 
    <Label layoutX="70" layoutY="180" text="Autor:" textFill="#8d6e63">
-      <font><Font name="Comic Sans MS Bold" size="15"/></font>
+      <font><Font name="Comic Sans MS Bold" size="15" /></font>
    </Label>
-   <TextField fx:id="autorLivroTextField"
-              layoutX="170" layoutY="178"
-              prefWidth="300"/>
+   <TextField fx:id="autorLivroTextField" layoutX="170" layoutY="178" prefWidth="300" />
 
    <Label layoutX="70" layoutY="230" text="Total Páginas:" textFill="#8d6e63">
-      <font><Font name="Comic Sans MS Bold" size="15"/></font>
+      <font><Font name="Comic Sans MS Bold" size="15" /></font>
    </Label>
-   <TextField fx:id="paginaLivroTextField"
-              layoutX="200" layoutY="228"
-              prefWidth="100"/>
+   <TextField fx:id="paginaLivroTextField" layoutX="200" layoutY="228" prefWidth="100" />
 
-   <Button fx:id="btn_enviar_info_livro"
-           layoutX="260" layoutY="280"
-           text="ENVIAR"
-           style="-fx-background-color: #8d6e63; -fx-text-fill: white;"
-           onAction="#enviarInfoLivro">
-      <font><Font name="Comic Sans MS Bold" size="13"/></font>
+   <Button fx:id="btn_enviar_info_livro" layoutX="260" layoutY="280" onAction="#enviarInfoLivro" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="ENVIAR">
+      <font><Font name="Comic Sans MS Bold" size="13" /></font>
    </Button>
 
    <!-- Controles de Página -->
-   <Button fx:id="btnPaginaAnterior"
-           layoutX="150" layoutY="330"
-           text="« Anterior"
-           onAction="#paginaAnterior"/>
-   <Button fx:id="btnProximaPagina"
-           layoutX="300" layoutY="330"
-           text="Próxima »"
-           onAction="#proximaPagina"/>
+   <Button fx:id="btnPaginaAnterior" layoutX="150" layoutY="330" onAction="#paginaAnterior" style="-fx-background-color: #8d6e63;" text="« Anterior" textFill="#fcfcfc" />
+   <Button fx:id="btnProximaPagina" layoutX="300" layoutY="330" onAction="#proximaPagina" style="-fx-background-color: #8d6e63;" text="Próxima »" textFill="#fcfcfc" />
 
-   <Label fx:id="labelPagina"
-          layoutX="230" layoutY="370"
-          text="Página Atual: —"
-          textFill="#8d6e63">
-      <font><Font name="Comic Sans MS Bold" size="14"/></font>
+   <Label fx:id="labelPagina" layoutX="230" layoutY="370" text="Página Atual: —" textFill="#8d6e63">
+      <font><Font name="Comic Sans MS Bold" size="14" /></font>
    </Label>
 
    <!-- Tabela de Livros -->
-   <TableView fx:id="tblView"
-              layoutX="50" layoutY="420"
-              prefWidth="500" prefHeight="180">
+   <TableView fx:id="tblView" layoutX="50" layoutY="420" prefHeight="180" prefWidth="500">
       <columns>
-         <TableColumn fx:id="tblTitulo"
-                      text="Título"
-                      prefWidth="180"/>
-         <TableColumn fx:id="tblAutor"
-                      text="Autor"
-                      prefWidth="140"/>
-         <TableColumn fx:id="tblTotal"
-                      text="Total Páginas"
-                      prefWidth="100"/>
-         <TableColumn fx:id="tblAtual"
-                      text="Página Atual"
-                      prefWidth="80"/>
+         <TableColumn fx:id="tblTitulo" prefWidth="180" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Título" />
+         <TableColumn fx:id="tblAutor" prefWidth="140" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Autor" />
+         <TableColumn fx:id="tblTotal" prefWidth="100" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Total Páginas" />
+         <TableColumn fx:id="tblAtual" prefWidth="80" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Página Atual" />
       </columns>
    </TableView>
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="500.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Livros.jpg" />
+      </image>
+   </ImageView>
 
 </AnchorPane>
