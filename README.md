@@ -64,7 +64,11 @@ mvn clean javafx:run
 - **Bicicleta 🚲**: Informe marca, tipo e número de marchas.  
 - **Geladeira 🧊**: Informe modelo, capacidade (L) e status (liga/desliga).  
 - **Televisão 📺**: Informe marca, tamanho da tela (polegadas), status (liga/desliga) e canal atual.  
-- **Celular 📱**: Informe modelo, sistema operacional, nível de bateria (0–100%) e status (liga/desliga).  
+- **Celular 📱**: Informe modelo, sistema operacional, nível de bateria (0–100%) e status (liga/desliga).
+- **Lâmpada 💡**: Informe status (ligada/desligada), potência (W) e tipo (LED, incandescente).
+- **Livro 📖**: Informe título, autor, gênero e ano de publicação.
+- **Pessoa 👤**: Informe nome, idade, ocupação e contato (email/telefone).
+- **Relógio ⏰**: Informe marca, formato (analógico/digital), horário atual e alarme configurado.
 
 ---
 
