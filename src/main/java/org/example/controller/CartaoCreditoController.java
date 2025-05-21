@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.example.App;
 import org.example.model.CartaoCredito;
 
 import java.util.HashMap;
@@ -73,6 +74,14 @@ public class CartaoCreditoController {
             return;
         }
 
+        // 🔒 Verificar se o número do cartão já existe
+        for (CartaoCredito cartao : cartoes) {
+            if (cartao.getNumeroCartao().equals(numero)) {
+                showAlert("Já existe um cartão com esse número. Insira um número único.");
+                return;
+            }
+        }
+
         double limite = Double.parseDouble(limiteStr);
         double fatura = Double.parseDouble(faturaStr);
 
@@ -83,12 +92,9 @@ public class CartaoCreditoController {
 
         CartaoCredito novoCartao = new CartaoCredito(numero, limite, fatura);
         cartoes.add(novoCartao);
-
-        // Define o novo cartão como o atual
         cartaoAtual = novoCartao;
         hackeado = false;
 
-        // Limpar os campos
         numeroCartaoTextField.clear();
         limiteCartaoTextField.clear();
         faturaCartaoTextField.clear();
@@ -134,10 +140,10 @@ public class CartaoCreditoController {
             return;
         }
 
-        // Atualiza fatura do cartão atual
+        // Atualiza fatura
         fatura += gasto;
         cartaoAtual.setFaturaAtual(fatura);
-        tblViewCartaoCredito.refresh(); // Atualiza a tabela
+        tblViewCartaoCredito.refresh();
 
         historicoGastos.put(cartaoAtual.getNumeroCartao(),
                 historicoGastos.getOrDefault(cartaoAtual.getNumeroCartao(), 0.0) + gasto);

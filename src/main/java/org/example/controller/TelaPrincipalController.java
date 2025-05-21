@@ -1,8 +1,9 @@
-package org.example;
+package org.example.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import org.example.App;
 
 public class TelaPrincipalController {
 

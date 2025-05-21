@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.LampadaController">
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.controller.LampadaController">
 
     <!-- VOLTAR -->
     <Button fx:id="btn_voltar_lampada" layoutX="14" layoutY="15" onAction="#voltarPrincipalLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">

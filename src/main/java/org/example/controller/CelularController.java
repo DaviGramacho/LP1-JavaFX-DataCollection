@@ -1,4 +1,4 @@
-package org.example;
+package org.example.controller;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
+import org.example.App;
 import org.example.model.Celular;
 
 import java.net.URL;

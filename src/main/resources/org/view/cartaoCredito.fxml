@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CartaoCreditoController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CartaoCreditoController">
    <children>
       <Text fill="#8d6e63" layoutX="134.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartão de Credito">
          <font>

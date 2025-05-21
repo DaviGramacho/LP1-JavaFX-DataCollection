@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.RelogioController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.RelogioController">
     <children>
         <!-- Botão ENVIAR -->
         <Button fx:id="btn_enviar_info_relogio" layoutX="160.0" layoutY="299.0" mnemonicParsing="false" onAction="#enviarInfoRelogio" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
