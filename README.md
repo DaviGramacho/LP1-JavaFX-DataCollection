@@ -12,32 +12,32 @@ Este projeto é uma aplicação em JavaFX super amigável que permite coletar da
 
 ## 🛠 Tecnologias Utilizadas
 
-- ☕ Java 17+
-- 🎨 JavaFX 17+
-- 📦 Apache Maven
+- ☕ Java 17+  
+- 🎨 JavaFX 17+  
+- 📦 Apache Maven  
 - 🖥 IDE sugerida: IntelliJ IDEA, VSCode, Eclipse (com suporte a JavaFX)
 
 ---
 
 ## ✨ Funcionalidades
 
-1. **📝 Coleta de Dados**
-   - Formulários JavaFX para inserção de informações de diferentes entidades.
-   - Validações de campos (campos obrigatórios, tipo numérico, limites máximos/mínimos).
-2. **📊 Apresentação de Resultados**
-   - Exibição dos objetos instanciados em tabelas (`TableView`) com `ObservableList`.
-   - Atualização dinâmica de ícones e cores de acordo com valores (por exemplo, nível de bateria, status ligado/desligado).
-3. **🔀 Navegação entre Telas**
-   - Menu de navegação para alternar entre formulários de cada entidade.
-4. **🎨 Uso de Recursos Visuais**
+1. **📝 Coleta de Dados**  
+   - Formulários JavaFX para inserção de informações de diferentes entidades.  
+   - Validações de campos (campos obrigatórios, tipo numérico, limites máximos/mínimos).  
+2. **📊 Apresentação de Resultados**  
+   - Exibição dos objetos instanciados em tabelas (`TableView`) com `ObservableList`.  
+   - Atualização dinâmica de ícones e cores de acordo com valores (por exemplo, nível de bateria, status ligado/desligado).  
+3. **🔀 Navegação entre Telas**  
+   - Menu de navegação para alternar entre formulários de cada entidade.  
+4. **🎨 Uso de Recursos Visuais**  
    - Ícones e imagens demonstrativos (em `src/main/resources/org/example/images/`).
 
 ---
 
 ## ✅ Pré-requisitos
 
-- **Java Development Kit (JDK) 17** ou superior instalado.
-- **Apache Maven** instalado e configurado no PATH.
+- **Java Development Kit (JDK) 17** ou superior instalado.  
+- **Apache Maven** instalado e configurado no PATH.  
 - IDE compatível com JavaFX ou JavaFX configurado manualmente.
 
 ---
@@ -59,11 +59,11 @@ mvn clean javafx:run
 
 ### 📝 Formulários
 
-- **Carro 🚗**: Informe marca, modelo, ano e potência.
-- **Cartão de Crédito 💳**: Informe titular, número, limite de crédito e fatura atual (fatura ≤ limite).
-- **Bicicleta 🚲**: Informe marca, tipo e número de marchas.
-- **Geladeira 🧊**: Informe modelo, capacidade (L) e status (liga/desliga).
-- **Televisão 📺**: Informe marca, tamanho da tela (polegadas), status (liga/desliga) e canal atual.
+- **Carro 🚗**: Informe marca, modelo, ano e potência.  
+- **Cartão de Crédito 💳**: Informe titular, número, limite de crédito e fatura atual (fatura ≤ limite).  
+- **Bicicleta 🚲**: Informe marca, tipo e número de marchas.  
+- **Geladeira 🧊**: Informe modelo, capacidade (L) e status (liga/desliga).  
+- **Televisão 📺**: Informe marca, tamanho da tela (polegadas), status (liga/desliga) e canal atual.  
 - **Celular 📱**: Informe modelo, sistema operacional, nível de bateria (0–100%) e status (liga/desliga).
 - **Lâmpada 💡**: Informe status (ligada/desligada), potência (W) e tipo (LED, incandescente).
 - **Livro 📖**: Informe título, autor, gênero e ano de publicação.
@@ -74,8 +74,8 @@ mvn clean javafx:run
 
 ### 📊 Tabela de Resultados
 
-- Cada formulário possui sua própria `TableView` para exibir instâncias.
-- As tabelas usam `ObservableList` para refletir alterações em tempo real.
+- Cada formulário possui sua própria `TableView` para exibir instâncias.  
+- As tabelas usam `ObservableList` para refletir alterações em tempo real.  
 
 ---
 
