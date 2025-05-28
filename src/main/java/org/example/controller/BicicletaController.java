@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.App;
+import org.example.dao.BicicletaDAO;
 import org.example.model.Bicicleta;
 
 public class BicicletaController {
@@ -25,10 +26,15 @@ public class BicicletaController {
     @FXML private TableColumn<Bicicleta, Integer> tblVel;
     @FXML private Label lblVelocidadeAtual;
 
+    private final BicicletaDAO bicicletaDAO = new BicicletaDAO();
     private final ObservableList<Bicicleta> bicicletas = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
+        configurarTabela();
+//        carregarCursosDoBanco();
+    }
+    public void configurarTabela(){
         tblMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
         tblMarcha.setCellValueFactory(new PropertyValueFactory<>("marchaAtual"));
         tblVel.setCellValueFactory(new PropertyValueFactory<>("velocidadeAtual"));
@@ -37,7 +43,6 @@ public class BicicletaController {
         // Inicializa a label com valor padrão
         lblVelocidadeAtual.setText("Velocidade Atual: 0 km/h");
     }
-
     @FXML
     void enviarInfoBicicleta(ActionEvent event) {
         String marca = marcaBicicletaTextField.getText().trim();

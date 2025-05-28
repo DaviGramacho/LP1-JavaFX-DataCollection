@@ -1,9 +1,9 @@
 package org.example.model;
 
 public class Bicicleta {
-    private String marca;
-    private int velocidadeAtual;
-    private int marchaAtual;
+    private static String marca;
+    private static int velocidadeAtual;
+    private static int  marchaAtual;
 
     public Bicicleta(String marca, int velocidadeAtual, int marchaAtual) {
         this.marca = marca;
@@ -11,11 +11,14 @@ public class Bicicleta {
         this.marchaAtual = marchaAtual;
     }
 
-    public String getMarca() {
+    public Bicicleta(int velocidade, int marcha, String marcaBicicleta) {
+    }
+
+    public static String getMarca() {
         return marca;
     }
 
-    public int getVelocidadeAtual() {
+    public static int getVelocidadeAtual() {
         return velocidadeAtual;
     }
 
@@ -23,7 +26,7 @@ public class Bicicleta {
         this.velocidadeAtual = velocidadeAtual;
     }
 
-    public int getMarchaAtual() {
+    public static int getMarchaAtual() {
         return marchaAtual;
     }
 
