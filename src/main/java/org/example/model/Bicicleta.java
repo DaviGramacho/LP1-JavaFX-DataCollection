@@ -1,9 +1,20 @@
 package org.example.model;
 
 public class Bicicleta {
-    private static String marca;
-    private static int velocidadeAtual;
-    private static int  marchaAtual;
+
+    private int id;
+    private String marca;
+    private int velocidadeAtual;
+    private int marchaAtual;
+
+    public Bicicleta() {}
+
+    public Bicicleta(int id, String marca, int velocidadeAtual, int marchaAtual) {
+        this.id = id;
+        this.marca = marca;
+        this.velocidadeAtual = velocidadeAtual;
+        this.marchaAtual = marchaAtual;
+    }
 
     public Bicicleta(String marca, int velocidadeAtual, int marchaAtual) {
         this.marca = marca;
@@ -11,37 +22,37 @@ public class Bicicleta {
         this.marchaAtual = marchaAtual;
     }
 
-    public Bicicleta(int velocidade, int marcha, String marcaBicicleta) {
+    // Getters e setters
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public static String getMarca() {
+    public String getMarca() {
         return marca;
     }
-
-    public static int getVelocidadeAtual() {
-        return velocidadeAtual;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
+    public int getVelocidadeAtual() {
+        return velocidadeAtual;
+    }
     public void setVelocidadeAtual(int velocidadeAtual) {
         this.velocidadeAtual = velocidadeAtual;
     }
 
-    public static int getMarchaAtual() {
+    public int getMarchaAtual() {
         return marchaAtual;
     }
-
     public void setMarchaAtual(int marchaAtual) {
         this.marchaAtual = marchaAtual;
     }
 
-    public void mostarInformacoes() {
-        System.out.println("Marca: " + marca);
-        System.out.println("Velocidade: " + velocidadeAtual);
-        System.out.println("Marcha: " + marchaAtual);
-    }
-
-    public static void main(String[] args) {
-        Bicicleta bike = new Bicicleta("nike", 10, 4);
-        bike.mostarInformacoes();
+    public void mostrarInformacoes() {
+        System.out.println("Bicicleta: " + marca + ", Velocidade: " + velocidadeAtual + ", Marcha: " + marchaAtual);
     }
 }

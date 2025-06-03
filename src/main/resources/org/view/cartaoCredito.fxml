@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CartaoCreditoController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CartaoCreditoController">
    <children>
       <Text fill="#8d6e63" layoutX="134.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cartão de Credito">
          <font>
@@ -47,7 +47,7 @@
          <font>
             <Font name="Comic Sans MS Bold" size="15.0" />
          </font></Label>
-      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="122.0" layoutY="292.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
+      <Button fx:id="btn_enviar_info_cartao_credito" layoutX="215.0" layoutY="273.0" mnemonicParsing="false" onAction="#enviarInfoCartaoCredito" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font></Button>
@@ -61,12 +61,22 @@
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="515.0" layoutY="292.0" mnemonicParsing="false" onAction="#gastarValor" style="-fx-background-color: #8d6e63;" text="Gastar limite" textFill="#fcfcfc">
+      <Button layoutX="148.0" layoutY="582.0" mnemonicParsing="false" onAction="#gastarValor" style="-fx-background-color: #8d6e63;" text="Gastar limite" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="328.0" layoutY="292.0" mnemonicParsing="false" onAction="#hackearCartao" style="-fx-background-color: #8d6e63;" text="Clonar o cartão" textFill="#fcfcfc">
+      <Button layoutX="23.0" layoutY="582.0" mnemonicParsing="false" onAction="#hackearCartao" style="-fx-background-color: #8d6e63;" text="Clonar o cartão" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_atualizar_cartao_credito" layoutX="21.0" layoutY="338.0" mnemonicParsing="false" onAction="#atualizarCartaoCredito" style="-fx-background-color: #8d6e63;" text="Atualizar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_deletar_cartao_credito" layoutX="113.0" layoutY="338.0" mnemonicParsing="false" onAction="#deletarCartaoCredito" style="-fx-background-color: #8d6e63;" text="Deletar" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>

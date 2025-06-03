@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BicicletaController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.BicicletaController">
    <children>
       <Label layoutX="260.0" layoutY="28.0" text="Bicicleta" textFill="#8d6e63">
          <font>
@@ -24,7 +24,7 @@
          </font>
       </Button>
 
-      <Button fx:id="btn_pedalar" layoutX="376.0" layoutY="409.0" mnemonicParsing="false" onAction="#pedalarBicicleta" style="-fx-background-color: #8d6e63;" text="PEDALAR" textFill="#fcfcfc">
+      <Button fx:id="btn_pedalar" layoutX="195.0" layoutY="366.0" mnemonicParsing="false" onAction="#pedalarBicicleta" style="-fx-background-color: #8d6e63;" text="PEDALAR" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
@@ -73,6 +73,16 @@
       </ImageView>
 
       <Button fx:id="btn_voltar_bicicleta" layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarPrincipalBicicleta" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_atualizar" layoutX="21.0" layoutY="367.0" mnemonicParsing="false" onAction="#atualizarBicicleta" style="-fx-background-color: #8d6e63;" text="Atualizar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_deletar" layoutX="117.0" layoutY="367.0" mnemonicParsing="false" onAction="#deletarBicicleta" style="-fx-background-color: #8d6e63;" text="Deletar" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="12.0" />
          </font>
