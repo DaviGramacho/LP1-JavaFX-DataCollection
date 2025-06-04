@@ -39,7 +39,7 @@
       <TableView fx:id="tblViewCartaoCredito" layoutX="21.0" layoutY="372.0" prefHeight="200.0" prefWidth="273.0">
         <columns>
           <TableColumn fx:id="tblNumeroCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Numero" />
-          <TableColumn fx:id="tblLimeteCartao" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Limite" />
+          <TableColumn fx:id="tblLimiteCartao" prefWidth="90.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: #fcfcfc;" text="Limite" />
             <TableColumn fx:id="tblFaturaCartao" prefWidth="90.0" style="-fx-background-color: #8d6e63; -fx-text-fill: #fcfcfc;" text="Fatura" />
         </columns>
       </TableView>

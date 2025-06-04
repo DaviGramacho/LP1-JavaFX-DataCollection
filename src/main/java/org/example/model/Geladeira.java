@@ -27,6 +27,14 @@ public class Geladeira {
         this.temperatura = temperatura;
     }
 
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
+    }
+
     public void mostrarGeladeira(){
         System.out.println("Marca: " + marca);
         System.out.println("Temperatura: " + temperatura);

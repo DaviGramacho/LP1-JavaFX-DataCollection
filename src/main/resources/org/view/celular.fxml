@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CelularController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.CelularController">
    <children>
       <!-- Título -->
       <Label layoutX="228.0" layoutY="20.0" text="Celular" textFill="#8d6e63">
@@ -75,5 +75,15 @@
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Celulares.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnDeletar" layoutX="167.0" layoutY="347.0" onAction="#deletarCelular" style="-fx-background-color: #8d6e63;" text="Deletar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnAtualizar" layoutX="39.0" layoutY="347.0" onAction="#atualizarCelular" style="-fx-background-color: #8d6e63;" text="Atualizar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

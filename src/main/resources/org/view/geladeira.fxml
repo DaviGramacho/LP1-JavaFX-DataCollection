@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.GeladeiraController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.GeladeiraController">
     <children>
         <Button layoutX="14.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarPrincipalGeladeira" style="-fx-background-color: #8d6e63;" text="VOLTAR" textFill="#fcfcfc">
             <font>
@@ -83,5 +83,15 @@
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Geladeiras.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnAtualizarGeladeira" layoutX="25.0" layoutY="360.0" onAction="#atualizarGeladeira" style="-fx-background-color: #8d6e63;" text="Atualizar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnGeladeira" layoutX="133.0" layoutY="360.0" onAction="#deletarGeladeira" style="-fx-background-color: #8d6e63;" text="Deletar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

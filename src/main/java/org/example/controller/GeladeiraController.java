@@ -39,36 +39,36 @@ public class GeladeiraController {
     private TableColumn<Geladeira, String> tblMarca;
 
     @FXML
-    private TableColumn<Geladeira, String> tblStatus;
-
-    @FXML
     private TableColumn<Geladeira, Integer> tblTemp;
 
+    @FXML
+    private TableColumn<Geladeira, String> tblStatus;
+
     private final ObservableList<Geladeira> geladeiras = FXCollections.observableArrayList();
-    private Geladeira ultimaGeladeira; // Variável para controlar a última geladeira adicionada
+    private Geladeira ultimaGeladeira;
 
     @FXML
     public void initialize() {
-        // Popula ComboBox
+        // Configura ComboBox de status
         geladeiraStatusComboBox.getItems().addAll("Ligada", "Desligada");
         geladeiraStatusComboBox.setValue("Ligada");
 
         // Configura colunas da tabela
         tblMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
-        tblStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         tblTemp.setCellValueFactory(new PropertyValueFactory<>("temperatura"));
+        tblStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         tblView.setItems(geladeiras);
 
-        // Inicializa a temperatura na label
+        // Atualiza a label inicial
         atualizarTemperaturaLabel();
     }
 
     @FXML
     void enviarInfoGeladeira(ActionEvent event) {
-        String marca  = marcaGeladeiraTextField.getText().trim();
+        String marca = marcaGeladeiraTextField.getText().trim();
         String status = geladeiraStatusComboBox.getValue();
-        String tempStr= temperaturaGeladeiraTextField.getText().trim();
+        String tempStr = temperaturaGeladeiraTextField.getText().trim();
 
         if (marca.isEmpty() || tempStr.isEmpty()) {
             mostrarAlerta("Erro", "Preencha todos os campos.");
@@ -79,53 +79,40 @@ public class GeladeiraController {
         try {
             temperatura = Integer.parseInt(tempStr);
         } catch (NumberFormatException e) {
-            mostrarAlerta("Erro", "Temperatura inválida! Digite um número inteiro.");
+            mostrarAlerta("Erro", "Temperatura inválida! Use um número inteiro.");
             return;
         }
 
-        Geladeira g = new Geladeira(marca, status, temperatura);
-        geladeiras.add(g);
+        Geladeira geladeira = new Geladeira(marca, status, temperatura);
+        geladeiras.add(geladeira);
+        ultimaGeladeira = geladeira;
 
-        ultimaGeladeira = g;  // Atualiza a última geladeira enviada
-
-        // Limpa campos
         marcaGeladeiraTextField.clear();
         temperaturaGeladeiraTextField.clear();
         geladeiraStatusComboBox.setValue("Ligada");
 
-        // Atualiza a temperatura na label
         atualizarTemperaturaLabel();
     }
 
     @FXML
     void aumentarTemperatura(ActionEvent event) {
         if (ultimaGeladeira != null) {
-            int novaTemperatura = ultimaGeladeira.getTemperatura() + 1;
-            ultimaGeladeira.setTemperatura(novaTemperatura);  // Atualiza a temperatura da última geladeira
-
-            // Atualiza a tabela
+            ultimaGeladeira.setTemperatura(ultimaGeladeira.getTemperatura() + 1);
             tblView.refresh();
-
-            // Atualiza a temperatura na label
             atualizarTemperaturaLabel();
         } else {
-            mostrarAlerta("Erro", "Não há geladeira para alterar a temperatura.");
+            mostrarAlerta("Erro", "Cadastre uma geladeira primeiro.");
         }
     }
 
     @FXML
     void diminuirTemperatura(ActionEvent event) {
         if (ultimaGeladeira != null) {
-            int novaTemperatura = ultimaGeladeira.getTemperatura() - 1;
-            ultimaGeladeira.setTemperatura(novaTemperatura);  // Atualiza a temperatura da última geladeira
-
-            // Atualiza a tabela
+            ultimaGeladeira.setTemperatura(ultimaGeladeira.getTemperatura() - 1);
             tblView.refresh();
-
-            // Atualiza a temperatura na label
             atualizarTemperaturaLabel();
         } else {
-            mostrarAlerta("Erro", "Não há geladeira para alterar a temperatura.");
+            mostrarAlerta("Erro", "Cadastre uma geladeira primeiro.");
         }
     }
 
@@ -135,11 +122,10 @@ public class GeladeiraController {
             App.setRoot("TelaPrincipal");
         } catch (Exception e) {
             e.printStackTrace();
-            mostrarAlerta("Erro", "Não foi possível voltar para a tela principal.");
+            mostrarAlerta("Erro", "Erro ao voltar à tela principal.");
         }
     }
 
-    // Função para atualizar a label da temperatura
     private void atualizarTemperaturaLabel() {
         if (ultimaGeladeira != null) {
             labelTemperatura.setText("Temperatura Atual: " + ultimaGeladeira.getTemperatura() + "°C");
@@ -147,6 +133,61 @@ public class GeladeiraController {
             labelTemperatura.setText("Temperatura Atual: Indefinida");
         }
     }
+
+    @FXML
+    void atualizarGeladeira(ActionEvent event) {
+        Geladeira selecionada = tblView.getSelectionModel().getSelectedItem();
+
+        if (selecionada == null) {
+            mostrarAlerta("Erro", "Selecione uma geladeira na tabela para atualizar.");
+            return;
+        }
+
+        String novaMarca = marcaGeladeiraTextField.getText().trim();
+        String novoStatus = geladeiraStatusComboBox.getValue();
+        String novaTemperaturaStr = temperaturaGeladeiraTextField.getText().trim();
+
+        if (novaMarca.isEmpty() || novaTemperaturaStr.isEmpty()) {
+            mostrarAlerta("Erro", "Preencha todos os campos para atualizar.");
+            return;
+        }
+
+        int novaTemperatura;
+        try {
+            novaTemperatura = Integer.parseInt(novaTemperaturaStr);
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Erro", "Temperatura inválida. Use um número inteiro.");
+            return;
+        }
+
+        selecionada.setMarca(novaMarca);
+        selecionada.setStatus(novoStatus);
+        selecionada.setTemperatura(novaTemperatura);
+
+        tblView.refresh(); // Atualiza a tabela visualmente
+        ultimaGeladeira = selecionada;
+        atualizarTemperaturaLabel();
+
+        marcaGeladeiraTextField.clear();
+        temperaturaGeladeiraTextField.clear();
+        geladeiraStatusComboBox.setValue("Ligada");
+    }
+
+    @FXML
+    void deletarGeladeira(ActionEvent event) {
+        Geladeira selecionada = tblView.getSelectionModel().getSelectedItem();
+
+        if (selecionada == null) {
+            mostrarAlerta("Erro", "Selecione uma geladeira para deletar.");
+            return;
+        }
+
+        geladeiras.remove(selecionada);
+        tblView.refresh();
+        ultimaGeladeira = geladeiras.isEmpty() ? null : geladeiras.get(geladeiras.size() - 1);
+        atualizarTemperaturaLabel();
+    }
+
 
     private void mostrarAlerta(String titulo, String mensagem) {
         Alert alert = new Alert(Alert.AlertType.ERROR);

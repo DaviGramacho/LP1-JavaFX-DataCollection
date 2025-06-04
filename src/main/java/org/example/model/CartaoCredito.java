@@ -1,40 +1,39 @@
 package org.example.model;
 
 public class CartaoCredito {
-    private String numeroCartao;
+    private String numero;
     private double limite;
-    private double faturaAtual;
+    private double fatura;
 
-    public CartaoCredito(String numeroCartao, double limite, double fatutaAtual){
-        this.numeroCartao = numeroCartao;
+    // Construtor vazio (para JavaFX ou frameworks)
+    public CartaoCredito() {}
+
+    // Construtor completo, sem id
+    public CartaoCredito(String numero, double limite, double fatura) {
+        this.numero = numero;
         this.limite = limite;
-        this.faturaAtual = fatutaAtual;
+        this.fatura = fatura;
     }
 
-    public String getNumeroCartao() {
-        return numeroCartao;
+    // Getters e Setters
+    public String getNumero() {
+        return numero;
+    }
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 
     public double getLimite() {
         return limite;
     }
-
-    public double getFaturaAtual() {
-        return faturaAtual;
+    public void setLimite(double limite) {
+        this.limite = limite;
     }
 
-    public void setFaturaAtual(double faturaAtual) {
-        this.faturaAtual = faturaAtual;
+    public double getFatura() {
+        return fatura;
     }
-
-    public void mostrarCartao(){
-        System.out.println("Numero cartao: " + numeroCartao);
-        System.out.println("Limite: " + limite);
-        System.out.println("Fatura atual: " + faturaAtual);
-    }
-
-    public static void main(String[] args) {
-        CartaoCredito cartaoCredito = new CartaoCredito("9128 2312 2132 5462", 2500, 180);
-        cartaoCredito.mostrarCartao();
+    public void setFatura(double fatura) {
+        this.fatura = fatura;
     }
 }
