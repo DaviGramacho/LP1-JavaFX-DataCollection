@@ -10,10 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.RelogioController">
+<AnchorPane prefHeight="640.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.RelogioController">
     <children>
         <!-- Botão ENVIAR -->
-        <Button fx:id="btn_enviar_info_relogio" layoutX="160.0" layoutY="299.0" mnemonicParsing="false" onAction="#enviarInfoRelogio" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
+        <Button fx:id="btnEnviarInfoRelogio" layoutX="160.0" layoutY="299.0" mnemonicParsing="false" onAction="#enviarInfoRelogio" style="-fx-background-color: #8d6e63;" text="ENVIAR" textFill="#fcfcfc">
             <font>
                 <Font name="Comic Sans MS Bold" size="13.0" />
             </font>
@@ -56,7 +56,7 @@
             <Font name="Comic Sans MS Bold" size="15" />
          </font>
       </Label>
-      <Button fx:id="btn_enviar_info_relogio1" layoutX="280.0" layoutY="299.0" mnemonicParsing="false" onAction="#editarInfoRelogio" style="-fx-background-color: #8d6e63;" text="Editar Hora" textFill="#fcfcfc">
+      <Button fx:id="btnAtualizarRelogio" layoutX="20.0" layoutY="377.0" mnemonicParsing="false" onAction="#atualizarRelogio" style="-fx-background-color: #8d6e63;" text="Atualizar" textFill="#fcfcfc">
          <font>
             <Font name="Comic Sans MS Bold" size="13.0" />
          </font>
@@ -71,5 +71,10 @@
             <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Relogios.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnDeletarRelogio" layoutX="109.0" layoutY="377.0" mnemonicParsing="false" onAction="#deletarRelogio" style="-fx-background-color: #8d6e63;" text="Deletar" textFill="#fcfcfc">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

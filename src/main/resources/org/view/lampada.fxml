@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.controller.LampadaController">
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LampadaController">
 
     <!-- VOLTAR -->
     <Button fx:id="btn_voltar_lampada" layoutX="14" layoutY="15" onAction="#voltarPrincipalLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">
@@ -54,12 +54,13 @@
     <Slider fx:id="brilhoLampadaSlider" blockIncrement="1" layoutX="160" layoutY="350" max="100" min="0" onMouseReleased="#atualizarBrilho" prefWidth="280" />
 
     <!-- Tabela de Lâmpadas -->
-    <TableView fx:id="tblView" layoutX="25" layoutY="400" prefHeight="200" prefWidth="504.0">
+    <TableView fx:id="tblView" layoutX="25" layoutY="400" prefHeight="200" prefWidth="502.0">
         <columns>
             <TableColumn fx:id="tblPotencia" prefWidth="125" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Potência" />
             <TableColumn fx:id="tblStatus" prefWidth="125" style="-fx-background-color: #BCAAA4; -fx-text-fill: white;" text="Status" />
             <TableColumn fx:id="tblTipo" prefWidth="125.0" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Tipo" />
             <TableColumn fx:id="tblBrilho" prefWidth="125.0" style="-fx-background-color: #BCAAA4; -fx-text-fill: white;" text="Brilho (%)" />
+         <TableColumn fx:id="tblId" prefWidth="75.0" text="id" visible="false" />
         </columns>
     </TableView>
    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="520.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
@@ -67,5 +68,15 @@
          <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Lampadas.jpg" />
       </image>
    </ImageView>
+   <Button fx:id="btnAtualizarLampada" layoutX="605.0" layoutY="400.0" onAction="#atualizarLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Atualizar">
+      <font>
+         <Font name="Comic Sans MS Bold" size="13" />
+      </font>
+   </Button>
+   <Button fx:id="btnDeletarLampada" layoutX="534.0" layoutY="400.0" onAction="#deletarLampada" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Deletar">
+      <font>
+         <Font name="Comic Sans MS Bold" size="13" />
+      </font>
+   </Button>
 
 </AnchorPane>

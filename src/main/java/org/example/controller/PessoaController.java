@@ -8,9 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.App;
+import org.example.dao.PessoaDAO;
 import org.example.model.Pessoa;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PessoaController implements Initializable {
@@ -19,21 +21,42 @@ public class PessoaController implements Initializable {
     @FXML private TextField idadePessoaTextField;
     @FXML private TextField alturaPessoaTextField;
     @FXML private Button btn_enviar_info_pessoa;
-    @FXML private Button btn_atualizar_idade;
+    @FXML private Button btnAtualizarPessoa;
+    @FXML private Button btnDeletarPessoa;
     @FXML private TableView<Pessoa> tblView;
     @FXML private TableColumn<Pessoa, String> tblNome;
     @FXML private TableColumn<Pessoa, Integer> tblIdade;
     @FXML private TableColumn<Pessoa, Double> tblAltura;
 
-    private final ObservableList<Pessoa> pessoas = FXCollections.observableArrayList();
+    private final ObservableList<Pessoa> pessoasObservable = FXCollections.observableArrayList();
+    private final PessoaDAO pessoaDAO = new PessoaDAO();
+
+    // Variável para armazenar o nome antigo (antes da edição)
+    private String nomeAntigo = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Configura as colunas da tabela
         tblNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
         tblIdade.setCellValueFactory(new PropertyValueFactory<>("idade"));
         tblAltura.setCellValueFactory(new PropertyValueFactory<>("altura"));
-        tblView.setItems(pessoas);
+
+        carregarPessoas();
+        tblView.setItems(pessoasObservable);
+
+        // Atualiza os campos ao selecionar uma linha da tabela e guarda o nome antigo
+        tblView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                nomePessoaTextField.setText(newSelection.getNome());
+                idadePessoaTextField.setText(String.valueOf(newSelection.getIdade()));
+                alturaPessoaTextField.setText(String.valueOf(newSelection.getAltura()));
+                nomeAntigo = newSelection.getNome();
+            }
+        });
+    }
+
+    private void carregarPessoas() {
+        List<Pessoa> lista = pessoaDAO.listar();
+        pessoasObservable.setAll(lista);
     }
 
     @FXML
@@ -58,48 +81,69 @@ public class PessoaController implements Initializable {
         }
 
         Pessoa pessoa = new Pessoa(nome, idade, altura);
-        pessoas.add(pessoa);
-
-        // Limpa os campos após o envio
-        nomePessoaTextField.clear();
-        idadePessoaTextField.clear();
-        alturaPessoaTextField.clear();
+        boolean inserido = pessoaDAO.adicionar(pessoa);
+        if (inserido) {
+            carregarPessoas();
+            limparCampos();
+            showAlertInfo("Sucesso", "Pessoa adicionada com sucesso!");
+        } else {
+            showAlert("Erro", "Erro ao adicionar pessoa.");
+        }
     }
 
     @FXML
-    void atualizarIdadePessoa(ActionEvent event) {
+    void atualizarPessoa(ActionEvent event) {
         String nome = nomePessoaTextField.getText().trim();
-        String novaIdadeS = idadePessoaTextField.getText().trim();
+        String idadeS = idadePessoaTextField.getText().trim();
+        String alturaS = alturaPessoaTextField.getText().trim();
 
-        if (nome.isEmpty() || novaIdadeS.isEmpty()) {
-            showAlert("Erro", "Preencha o nome da pessoa e a nova idade.");
+        if (nome.isEmpty() || idadeS.isEmpty() || alturaS.isEmpty()) {
+            showAlert("Erro", "Preencha todos os campos.");
             return;
         }
 
-        int novaIdade;
+        int idade;
+        double altura;
         try {
-            novaIdade = Integer.parseInt(novaIdadeS);
+            idade = Integer.parseInt(idadeS);
+            altura = Double.parseDouble(alturaS);
         } catch (NumberFormatException e) {
-            showAlert("Erro", "A idade deve ser um número válido.");
+            showAlert("Erro", "Idade e Altura devem ser números válidos.");
             return;
         }
 
-        // Procura pela pessoa na lista
-        Pessoa pessoaParaAtualizar = null;
-        for (Pessoa pessoa : pessoas) {
-            if (pessoa.getNome().equals(nome)) {
-                pessoaParaAtualizar = pessoa;
-                break;
-            }
+        if (nomeAntigo == null) {
+            showAlert("Erro", "Selecione uma pessoa para atualizar.");
+            return;
         }
 
-        if (pessoaParaAtualizar != null) {
-            // Atualiza a idade da pessoa encontrada
-            pessoaParaAtualizar.setIdade(novaIdade);
-            tblView.refresh(); // Atualiza a tabela para refletir a mudança
-            showAlert("Sucesso", "Idade da pessoa atualizada!");
+        Pessoa pessoaAtualizada = new Pessoa(nome, idade, altura);
+        boolean atualizado = pessoaDAO.atualizarPessoa(pessoaAtualizada, nomeAntigo);
+        if (atualizado) {
+            carregarPessoas();
+            limparCampos();
+            showAlertInfo("Sucesso", "Pessoa atualizada com sucesso!");
+            nomeAntigo = null;
         } else {
-            showAlert("Erro", "Pessoa não encontrada.");
+            showAlert("Erro", "Erro ao atualizar pessoa.");
+        }
+    }
+
+    @FXML
+    void deletarPessoa(ActionEvent event) {
+        Pessoa pessoaSelecionada = tblView.getSelectionModel().getSelectedItem();
+        if (pessoaSelecionada == null) {
+            showAlert("Erro", "Selecione uma pessoa para deletar.");
+            return;
+        }
+
+        boolean deletado = pessoaDAO.deletarPorNome(pessoaSelecionada.getNome());
+        if (deletado) {
+            carregarPessoas();
+            limparCampos();
+            showAlertInfo("Sucesso", "Pessoa deletada com sucesso!");
+        } else {
+            showAlert("Erro", "Erro ao deletar pessoa.");
         }
     }
 
@@ -112,8 +156,22 @@ public class PessoaController implements Initializable {
         }
     }
 
+    private void limparCampos() {
+        nomePessoaTextField.clear();
+        idadePessoaTextField.clear();
+        alturaPessoaTextField.clear();
+    }
+
     private void showAlert(String title, String message) {
         Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setTitle(title);
+        a.setHeaderText(null);
+        a.setContentText(message);
+        a.showAndWait();
+    }
+
+    private void showAlertInfo(String title, String message) {
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
         a.setTitle(title);
         a.setHeaderText(null);
         a.setContentText(message);

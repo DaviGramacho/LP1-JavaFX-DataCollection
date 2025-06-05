@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.controller.LivroController">
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.LivroController">
 
    <!-- VOLTAR -->
    <Button layoutX="14" layoutY="15" onAction="#voltarPrincipalLivro" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">
@@ -43,10 +43,10 @@
    </Button>
 
    <!-- Controles de Página -->
-   <Button fx:id="btnPaginaAnterior" layoutX="150" layoutY="330" onAction="#paginaAnterior" style="-fx-background-color: #8d6e63;" text="« Anterior" textFill="#fcfcfc" />
-   <Button fx:id="btnProximaPagina" layoutX="300" layoutY="330" onAction="#proximaPagina" style="-fx-background-color: #8d6e63;" text="Próxima »" textFill="#fcfcfc" />
+   <Button fx:id="btnPaginaAnterior" layoutX="45.0" layoutY="392.0" onAction="#paginaAnterior" style="-fx-background-color: #8d6e63;" text="« Anterior" textFill="#fcfcfc" />
+   <Button fx:id="btnProximaPagina" layoutX="136.0" layoutY="392.0" onAction="#proximaPagina" style="-fx-background-color: #8d6e63;" text="Próxima »" textFill="#fcfcfc" />
 
-   <Label fx:id="labelPagina" layoutX="230" layoutY="370" text="Página Atual: —" textFill="#8d6e63">
+   <Label fx:id="labelPagina" layoutX="221.0" layoutY="394.0" text="Página Atual: —" textFill="#8d6e63">
       <font><Font name="Comic Sans MS Bold" size="14" /></font>
    </Label>
 
@@ -64,5 +64,15 @@
          <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Livros.jpg" />
       </image>
    </ImageView>
+   <Button fx:id="btnatualizarLivro" layoutX="394.0" layoutY="391.0" onAction="#atualizarLivro" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Atualizar">
+      <font>
+         <Font name="Comic Sans MS Bold" size="13" />
+      </font>
+   </Button>
+   <Button fx:id="btnDeletarLivro" layoutX="500.0" layoutY="391.0" onAction="#deletarLivro" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Deletar">
+      <font>
+         <Font name="Comic Sans MS Bold" size="13" />
+      </font>
+   </Button>
 
 </AnchorPane>

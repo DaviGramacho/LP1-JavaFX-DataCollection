@@ -22,8 +22,8 @@ public class CarroDAO {
                         rs.getInt("id"),
                         rs.getString("marca_carro"),
                         rs.getString("modelo_carro"),
-                        Integer.parseInt(rs.getString("ano_carro")), // ou rs.getInt("ano_carro")
-                        rs.getString("marcha_carro") // ✅ CORRIGIDO AQUI
+                        Integer.parseInt(rs.getString("ano_carro")),
+                        rs.getString("marcha_carro")
                 );
                 lista.add(c);
             }
@@ -44,13 +44,13 @@ public class CarroDAO {
             stmt.setString(1, carro.getMarca());
             stmt.setString(2, carro.getModelo());
             stmt.setInt(3, carro.getAno());
-            stmt.setString(4, carro.getMarcha()); // ✅ CORRIGIDO AQUI
+            stmt.setString(4, carro.getMarcha());
 
             stmt.executeUpdate();
 
             ResultSet rs = stmt.getGeneratedKeys();
             if (rs.next()) {
-                carro.setId(rs.getInt(1)); // Se o campo ID for autoincremento
+                carro.setId(rs.getInt(1));
             }
 
         } catch (SQLException e) {
@@ -67,7 +67,7 @@ public class CarroDAO {
             stmt.setString(1, carro.getMarca());
             stmt.setString(2, carro.getModelo());
             stmt.setInt(3, carro.getAno());
-            stmt.setString(4, carro.getMarcha()); // ✅ CORRIGIDO AQUI
+            stmt.setString(4, carro.getMarcha());
             stmt.setInt(5, carro.getId());
 
             stmt.executeUpdate();

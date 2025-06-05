@@ -7,7 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.example.App;
+import org.example.dao.RelogioDAO;
 import org.example.model.Relogio;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public class RelogioController {
 
@@ -23,24 +27,26 @@ public class RelogioController {
     @FXML private TableColumn<Relogio, String> minutosColuna;
 
     private final ObservableList<Relogio> relogios = FXCollections.observableArrayList();
-
-    // Modo de edição (null = criação)
     private Relogio relogioEmEdicao = null;
 
     @FXML
     void initialize() {
         marcaColuna.setCellValueFactory(new PropertyValueFactory<>("marca"));
         horaColuna.setCellValueFactory(new PropertyValueFactory<>("hora"));
-        minutosColuna.setCellValueFactory(new PropertyValueFactory<>("minutos"));
+        minutosColuna.setCellValueFactory(new PropertyValueFactory<>("minuto"));  // singular
+
         tblView.setItems(relogios);
+
+        carregarTabela();
     }
 
-    @FXML
-    void voltarPrincipalRelogio(ActionEvent event) {
-        try {
-            App.setRoot("TelaPrincipal");
-        } catch (Exception e) {
+    private void carregarTabela() {
+        try (RelogioDAO dao = new RelogioDAO()) {
+            List<Relogio> lista = dao.listarTodos();
+            relogios.setAll(lista);
+        } catch (SQLException e) {
             e.printStackTrace();
+            showAlert("Erro", "Falha ao carregar dados da tabela.");
         }
     }
 
@@ -48,37 +54,42 @@ public class RelogioController {
     void enviarInfoRelogio(ActionEvent event) {
         String marca = marcaRelogioTextField.getText().trim();
         String hora = horaRelogioTextField.getText().trim();
-        String minutos = minutosRelogioTextField.getText().trim();
+        String minuto = minutosRelogioTextField.getText().trim();  // singular
 
-        if (marca.isEmpty() || hora.isEmpty() || minutos.isEmpty()) {
+        if (marca.isEmpty() || hora.isEmpty() || minuto.isEmpty()) {
             showAlert("Erro", "Preencha todos os campos.");
             return;
         }
 
-        if (!isNumeric(hora) || !isNumeric(minutos)) {
+        if (!isNumeric(hora) || !isNumeric(minuto)) {
             showAlert("Erro", "Hora e minutos devem ser números válidos.");
             return;
         }
 
-        if (relogioEmEdicao == null) {
-            // Criação
-            Relogio novoRelogio = new Relogio(marca, hora, minutos);
-            relogios.add(novoRelogio);
-        } else {
-            // Edição
-            relogioEmEdicao.setMarca(marca);
-            relogioEmEdicao.setHora(hora);
-            relogioEmEdicao.setMinutos(minutos);
-            tblView.refresh();
-            relogioEmEdicao = null;
-            btnEnviarInfoRelogio.setText("ENVIAR");
+        try (RelogioDAO dao = new RelogioDAO()) {
+            if (relogioEmEdicao == null) {
+                Relogio novoRelogio = new Relogio(marca, hora, minuto);
+                dao.inserir(novoRelogio);
+                relogios.add(novoRelogio);
+            } else {
+                String marcaOriginal = relogioEmEdicao.getMarca();
+                relogioEmEdicao.setMarca(marca);
+                relogioEmEdicao.setHora(hora);
+                relogioEmEdicao.setMinuto(minuto);
+                dao.atualizar(relogioEmEdicao, marcaOriginal);
+                tblView.refresh();
+                relogioEmEdicao = null;
+                btnEnviarInfoRelogio.setText("ENVIAR");
+            }
+            limparCampos();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Erro", "Erro ao salvar no banco de dados.");
         }
-
-        limparCampos();
     }
 
     @FXML
-    void editarInfoRelogio(ActionEvent event) {
+    void atualizarRelogio(ActionEvent event) {
         Relogio selecionado = tblView.getSelectionModel().getSelectedItem();
 
         if (selecionado == null) {
@@ -88,16 +99,47 @@ public class RelogioController {
 
         marcaRelogioTextField.setText(selecionado.getMarca());
         horaRelogioTextField.setText(selecionado.getHora());
-        minutosRelogioTextField.setText(selecionado.getMinutos());
+        minutosRelogioTextField.setText(selecionado.getMinuto());
 
         relogioEmEdicao = selecionado;
         btnEnviarInfoRelogio.setText("ATUALIZAR");
+    }
+
+    @FXML
+    void deletarRelogio(ActionEvent event) {
+        Relogio selecionado = tblView.getSelectionModel().getSelectedItem();
+
+        if (selecionado == null) {
+            showAlert("Erro", "Selecione um relógio para deletar.");
+            return;
+        }
+
+        try (RelogioDAO dao = new RelogioDAO()) {
+            dao.deletar(selecionado.getMarca());
+            relogios.remove(selecionado);
+            limparCampos();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert("Erro", "Erro ao deletar do banco de dados.");
+        }
+    }
+
+    @FXML
+    void voltarPrincipalRelogio(ActionEvent event) {
+        try {
+            App.setRoot("TelaPrincipal");
+        } catch (Exception e) {
+            e.printStackTrace();
+            showAlert("Erro", "Erro ao trocar de tela.");
+        }
     }
 
     private void limparCampos() {
         marcaRelogioTextField.clear();
         horaRelogioTextField.clear();
         minutosRelogioTextField.clear();
+        btnEnviarInfoRelogio.setText("ENVIAR");
+        relogioEmEdicao = null;
     }
 
     private boolean isNumeric(String str) {

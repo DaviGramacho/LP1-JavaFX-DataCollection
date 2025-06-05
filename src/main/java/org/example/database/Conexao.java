@@ -9,7 +9,7 @@ public class Conexao {
 
     static String url = "jdbc:mysql://localhost:3306/lp1db";
     static String user = "root";
-    static String password = "040602";
+    static String password = "0000";
 
     public static Connection conectar() {
         try {

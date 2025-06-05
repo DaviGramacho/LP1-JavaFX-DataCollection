@@ -21,6 +21,8 @@ public class LivroController implements Initializable {
     @FXML private Button btn_enviar_info_livro;
     @FXML private Button btnPaginaAnterior;
     @FXML private Button btnProximaPagina;
+    @FXML private Button btnDeletarLivro;
+    @FXML private Button btnAtualizarLivro;
     @FXML private Label labelPagina;           // Exibe "Página X de Y"
     @FXML private TableView<Livro> tblView;
     @FXML private TableColumn<Livro, String> tblTitulo;
@@ -41,6 +43,15 @@ public class LivroController implements Initializable {
         tblView.setItems(livros);
 
         labelPagina.setText("Página Atual: —");
+
+        // Preencher campos ao selecionar um livro na tabela (opcional, mas ajuda na atualização)
+        tblView.getSelectionModel().selectedItemProperty().addListener((obs, antigo, novo) -> {
+            if (novo != null) {
+                ultimoLivro = novo;
+                preencherCampos(novo);
+                atualizarLabelPagina();
+            }
+        });
     }
 
     @FXML
@@ -103,6 +114,67 @@ public class LivroController implements Initializable {
     }
 
     @FXML
+    void deletarLivro(ActionEvent event) {
+        Livro selecionado = tblView.getSelectionModel().getSelectedItem();
+        if (selecionado == null) {
+            showAlert("Erro", "Selecione um livro para deletar.");
+            return;
+        }
+        livros.remove(selecionado);
+
+        if (selecionado.equals(ultimoLivro)) {
+            ultimoLivro = null;
+            labelPagina.setText("Página Atual: —");
+        }
+    }
+
+    @FXML
+    void atualizarLivro(ActionEvent event) {
+        Livro selecionado = tblView.getSelectionModel().getSelectedItem();
+        if (selecionado == null) {
+            showAlert("Erro", "Selecione um livro para atualizar.");
+            return;
+        }
+
+        String novoTitulo = tituloLivroTextField.getText().trim();
+        String novoAutor = autorLivroTextField.getText().trim();
+        String totalS = paginaLivroTextField.getText().trim();
+
+        if (novoTitulo.isEmpty() || novoAutor.isEmpty() || totalS.isEmpty()) {
+            showAlert("Erro", "Preencha todos os campos para atualizar.");
+            return;
+        }
+
+        int novoTotal;
+        try {
+            novoTotal = Integer.parseInt(totalS);
+        } catch (NumberFormatException e) {
+            showAlert("Erro", "Total de páginas deve ser um número.");
+            return;
+        }
+
+        // Atualiza os campos do livro selecionado
+        selecionado.setTitulo(novoTitulo);
+        selecionado.setAutor(novoAutor);
+        selecionado.setTotalPaginas(novoTotal);
+
+        if (selecionado.getPaginaAtual() > novoTotal) {
+            selecionado.setPaginaAtual(novoTotal);
+        }
+
+        tblView.refresh();
+
+        if (selecionado.equals(ultimoLivro)) {
+            atualizarLabelPagina();
+        }
+
+        // Limpa campos
+        tituloLivroTextField.clear();
+        autorLivroTextField.clear();
+        paginaLivroTextField.clear();
+    }
+
+    @FXML
     void voltarPrincipalLivro(ActionEvent event) {
         try {
             App.setRoot("TelaPrincipal");
@@ -118,6 +190,8 @@ public class LivroController implements Initializable {
                             ultimoLivro.getPaginaAtual() +
                             " de " + ultimoLivro.getTotalPaginas()
             );
+        } else {
+            labelPagina.setText("Página Atual: —");
         }
     }
 
@@ -127,5 +201,11 @@ public class LivroController implements Initializable {
         a.setHeaderText(null);
         a.setContentText(message);
         a.showAndWait();
+    }
+
+    private void preencherCampos(Livro livro) {
+        tituloLivroTextField.setText(livro.getTitulo());
+        autorLivroTextField.setText(livro.getAutor());
+        paginaLivroTextField.setText(String.valueOf(livro.getTotalPaginas()));
     }
 }

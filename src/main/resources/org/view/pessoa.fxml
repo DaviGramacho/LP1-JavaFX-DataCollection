@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="org.example.controller.PessoaController">
+<AnchorPane prefHeight="640" prefWidth="600" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.PessoaController">
 
    <!-- VOLTAR -->
    <Button layoutX="14" layoutY="15" onAction="#voltarPrincipalPessoa" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="VOLTAR">
@@ -43,7 +43,7 @@
    </Button>
 
    <!-- Botão para atualizar a idade -->
-   <Button fx:id="btn_atualizar_idade" layoutX="260" layoutY="320" onAction="#atualizarIdadePessoa" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="ATUALIZAR IDADE">
+   <Button fx:id="btnAtualizarPessoa" layoutX="56.0" layoutY="334.0" onAction="#atualizarPessoa" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Atualizar">
       <font><Font name="Comic Sans MS Bold" size="13" /></font>
    </Button>
 
@@ -60,5 +60,10 @@
          <Image url="@../../../../../../../atividade_2/atividade_2/src/main/java/org/example/Exercicios_Linguagem_Programacao/Segunda_Aula_11_03_2025/images/Pessoas.jpg" />
       </image>
    </ImageView>
+   <Button fx:id="btnDeletarPessoa" layoutX="144.0" layoutY="334.0" onAction="#deletarPessoa" style="-fx-background-color: #8d6e63; -fx-text-fill: white;" text="Deletar">
+      <font>
+         <Font name="Comic Sans MS Bold" size="13" />
+      </font>
+   </Button>
 
 </AnchorPane>

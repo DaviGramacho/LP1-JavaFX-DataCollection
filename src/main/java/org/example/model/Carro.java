@@ -7,7 +7,6 @@ public class Carro {
     private int ano;
     private String marcha;
 
-    // Construtor completo (usado para carregar do banco)
     public Carro(int id, String marca, String modelo, int ano, String marcha) {
         this.id = id;
         this.marca = marca;
@@ -16,7 +15,6 @@ public class Carro {
         this.marcha = marcha;
     }
 
-    // Construtor sem ID (usado para inserir um novo carro)
     public Carro(String marca, String modelo, int ano, String marcha) {
         this.marca = marca;
         this.modelo = modelo;
@@ -24,7 +22,6 @@ public class Carro {
         this.marcha = marcha;
     }
 
-    // Getters e setters
     public int getId() {
         return id;
     }
@@ -63,21 +60,5 @@ public class Carro {
 
     public void setMarcha(String marcha) {
         this.marcha = marcha;
-    }
-
-    // Método para exibir informações
-    public void mostrarCarro() {
-        System.out.println("ID: " + id);
-        System.out.println("Marca: " + marca);
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Ano: " + ano);
-        System.out.println("Marcha: " + marcha);
-    }
-
-    // Método main para teste
-    public static void main(String[] args) {
-        Carro carro = new Carro("Chevrolet", "Onix", 2020, "5");
-        carro.setId(1);
-        carro.mostrarCarro();
     }
 }

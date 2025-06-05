@@ -17,12 +17,24 @@ public class Livro {
         return titulo;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getAutor() {
         return autor;
     }
 
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
     public int getTotalPaginas() {
         return totalPaginas;
+    }
+
+    public void setTotalPaginas(int totalPaginas) {
+        this.totalPaginas = totalPaginas;
     }
 
     public int getPaginaAtual() {

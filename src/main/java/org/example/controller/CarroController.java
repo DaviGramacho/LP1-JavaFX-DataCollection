@@ -39,7 +39,7 @@ public class CarroController {
     private ObservableList<Carro> carros = FXCollections.observableArrayList();
     private final CarroDAO carroDAO = new CarroDAO();
 
-    private String marchaAtual = "1"; // Inicia na primeira marcha
+    private String marchaAtual = "1";
 
     @FXML
     public void initialize() {
@@ -149,8 +149,6 @@ public class CarroController {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
-
-    // Marcha...
 
     @FXML
     public void aumentarMarcha() {
